@@ -6,21 +6,21 @@
   <!ENTITY RFC4395 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4395.xml">
 ]>
 
-<rfc category="info" ipr="full3978" docName="draft-holsten-about-uri-scheme-00">
+<rfc category="info" ipr="trust200811" docName="draft-holsten-about-uri-scheme-00">
   <front>
     <title>The 'about' URI scheme</title>
     <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
       <organization>N/A</organization>
       <address>
-        <postal>
-          <street>5813 E 64th Place</street>
-          <city>Tulsa</city>
-          <region>OK</region>
-          <code>74136</code>
-          <country>US</country>
-        </postal>
         <email>joseph@josephholsten.com</email>
         <uri>http://josephholsten.com</uri>
+      </address>
+    </author>
+      <author initials="L" surname="Hunt" fullname="Lachlan Hunt">
+      <organization>Opera Software, ASA.</organization>
+      <address>
+        <email>lachlan.hunt@lachy.id.au</email>
+        <uri>http://lachy.id.au/</uri>
       </address>
     </author>
     <date month="January" year="2009" />
@@ -32,9 +32,23 @@
     <keyword>about</keyword>
     <abstract>
       <t>This document specifies the URI (Uniform Resource Identifier) scheme "about".  About URIs describe resources within a browser or other software interpreting URIs.</t>
+      <t>This document describes the "about" Uniform Resource Identifier (URI)
+      scheme.  About URIs are designed to be an internal, application-level
+      identifier.  Unlike many other URI schemes, the resolution of, and
+      resources represented by, about URIs is left entirely to each
+      individual application.</t>
     </abstract>
   </front>
   <middle>
+    <section ancho="intro" title="Introduction">
+      <t>
+      An about URI is designed to be used internally by applications for
+      almost any desired purpose.  Such URIs have commonly been used by web
+      browsers for proving access to built-in functionality, such as
+      application preferences and settings, information about the
+      application, or "easter eggs".
+      </t>
+    </section>
     <section anchor="desc" title="Description">
       <t>About URIs provide a namespace for browsers and other URI interpreters to expose implementation specific information. While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The about:blank URI is ubiquitous, and some browsers also provide other resources with the about scheme, including about:cache and about:version. A frighteningly large list of about URIs <eref target="http://www.rigaut.com/benoit/CERN/about/" />.</t>
       <t>About URIs are also more memorable than an equivalent urn or tag URI. Using an http URI would not only be less memorable, but also longer and semantically confusing.</t>
@@ -56,17 +70,54 @@
       </figure>
       <t>No relative URI syntax is defined.</t>
     </section>
-    <section title="Examples">
-      <t>The following are examples of about URIs that a browser could resolve. They are not guaranteed to be resolvable by every browser.</t>
-      <t><list>
-        <t>about:</t>
-        <t>about:blank</t>
-        <t>about:sgml-compat</t>
-      </list></t>
+    <section title="Resolving About URIs">
+      <t>In general, applications are free to resolve any about URI to any
+      resource, either internal or external, or redirect to an alternative
+      URI, with about:blank (Section 3.1) being the only exception.</t>
+      <t>As about URIs are designed to be internal to each application, there
+      is no expectation of any URI, except about:blank, returning the same
+      resource among different applications.  However, it is worth noting
+      that some conventions have arisen for providing particular
+      functionality via common about URIs.</t>
+
+      <t>The about:blank URI is the only about URI reserved by this
+      specification.</t>
+      
+      <section title="about:blank">
+        <t>Applications resolving this URI must return an empty resource,
+         containing nothing.</t>
+      </section>
+      <section title="Examples">
+        <t>The following are examples of about URIs that a browser could resolve. They are not guaranteed to be resolvable by every browser.</t>
+        <t><list>
+          <t>about:</t>
+          <t>about:blank</t>
+          <t>about:sgml-compat</t>
+          
+          
+          The following examples illustrate some known URIs supported by
+          existing applications.
+
+          <t>about:config  Commonly provides access to application preferences and
+             settings</t>
+
+          <t>about:cache  Commonly provides access to information about resources
+             stored in the browsers cache.</t>
+
+          <t>about:plugins  Commonly provides access to information about
+             installed plugins</t>
+
+          <t>about:mozilla  An easter egg supported by Mozilla showing a passage
+             from the fictional Book of Mozilla</t>
+
+          <t>about:internets  An easter egg supported by Google Chrome depicting
+             the internet as a series of tubes.</t>
+        </list></t>
+      </section>
     </section>
     <section title="Acknowledgements">
       <t>This I-D was made possible thanks to the <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0164.html">suggestion</eref> of Henri Sivonen and the <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0322">interest</eref> of Ian Hickson. Some <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0167.html">points</eref> from Lachlan Hunt. also <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0325.html">points</eref> by Larry Masinter.</t>
-      <t>EDITOR'S NOTE: add references to historical implementations and related work. remove references to discussion.</t>
+      <t>EDITOR'S NOTE: add references to historical implementations and related work. remove references to discussion.    insert information about Origin</t>
     </section>
     <section anchor="security" title="Security Considerations">
       <t>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.</t>      
