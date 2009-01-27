@@ -11,7 +11,7 @@ Expires: July 31, 2009                              Opera Software, ASA.
                          The 'about' URI scheme
                    draft-holsten-about-uri-scheme-00
 
-Status of this Memo
+Status of This Memo
 
    This Internet-Draft is submitted to IETF in full conformance with the
    provisions of BCP 78 and BCP 79.
@@ -49,11 +49,18 @@ Copyright Notice
 Abstract
 
    This document specifies the URI (Uniform Resource Identifier) scheme
+
+
+
+Holsten & Hunt            Expires July 31, 2009                 [Page 1]
+
+Internet-Draft           The 'about' URI scheme             January 2009
+
+
    "about".  About URIs are designed to be an internal, application-
    level identifier.  Unlike many other URI schemes, the resolution of,
    and resources represented by, about URIs are left entirely to each
    individual application.
-
 
 1.  Introduction
 
@@ -70,12 +77,11 @@ Abstract
    de facto standard.  Browsers already use the about scheme.  The
    about:blank (Section 3.1) URI is ubiquitous, and some browsers also
    provide other resources with the about scheme, including those in
-   Section 3.2.[NOTE-1]
+   Section 3.2.
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
-
 
 2.  URI Syntax
 
@@ -87,7 +93,6 @@ Abstract
    escaped, as per [RFC3986].
 
    No relative URI syntax is defined.
-
 
 3.  Resolving About URIs
 
@@ -101,12 +106,19 @@ Abstract
    that some conventions have arisen for providing particular
    functionality via common about URIs.
 
+
+
+Holsten & Hunt            Expires July 31, 2009                 [Page 2]
+
+Internet-Draft           The 'about' URI scheme             January 2009
+
+
    Because about URIs identify application specific information,
    applications should not need to retrieve remote information for such
-   a resource.[NOTE-2]
+   a resource.
 
    The about:blank URI is the only about URI reserved by this
-   specification.[NOTE-3]
+   specification.
 
 3.1.  about:blank
 
@@ -136,12 +148,10 @@ Abstract
    about:internets  An easter egg supported by Google Chrome depicting
       the internet as a series of tubes.
 
-
 4.  Acknowledgements
 
    This document was made possible thanks to the input of Henri Sivonen,
-   Ian Hickson and Larry Masinter.[NOTE-4]
-
+   Ian Hickson and Larry Masinter.
 
 5.  Security Considerations
 
@@ -151,16 +161,22 @@ Abstract
    reference should be accompanied by an explanation or alternatives.
 
    Some applications are known to display arbitrary HTML following the
+
+
+
+Holsten & Hunt            Expires July 31, 2009                 [Page 3]
+
+Internet-Draft           The 'about' URI scheme             January 2009
+
+
    scheme.  Applications should be cautious when accessing an about URI.
    An application should not execute or display information in an about
    URI.  About URIs should not cause the application to modify any data.
-   Applications should not use about URIs to access files or other
-   sensitive information.
+   Applications should not use about URIs to access, or erase files or
+   other sensitive information.
 
-   About URIs may identify resources which show private information.
-   This sensitive information should never be included in about
-   URIs.[NOTE-5][NOTE-6]
-
+   About URIs may identify resources which show sensitive information.
+   This data SHOULD NOT be exposed in about URIs.>
 
 6.  IANA Considerations
 
@@ -168,37 +184,48 @@ Abstract
    URI scheme as specified in this document and summarized in the
    following template, per [RFC4395]:
 
-   URI Scheme Name:  about
+   URI scheme name:  about
 
    Status:  Provisional
 
-   URI Scheme Syntax:  see Section 2
+   URI scheme syntax:  See Section 2
 
-   URI Scheme Semantics:  see Section 1
+   URI scheme semantics:  See Section 1
 
-   Character Encoding Considerations:  percent-encoding is allowed in
-      'segment' components (see Section 2)
+   Encoding considerations:  Percent-encoding is allowed in 'segment'
+      components (see Section 2)
 
-   Intended usage:  see Section 1
+   Intended usage:  See Section 1
 
    Applications and/or protocols that use this URI scheme name:  Any
       applications that use URIs as identifiers for private resources,
       such as web browsers.
 
-   Interoperability considerations:  Applications may choose to
-      interpret about URIs differently.  About URIs should only be
-      expected to work correctly within the same application.
+   Interoperability considerations:  Applications are only required to
+      support about:blank, and may choose to interpret other about URIs
+      differently.  Other about URIs should only be expected to work
+      correctly within the same application.
 
-   Security considerations:  see Section 5
+   Security considerations:  See Section 5
 
-   Relevant publications:  none
+   Relevant publications:  None
 
    Contact:  Joseph Holsten (joseph@josephholsten.com)
 
    Author/Change controller:  Joseph Holsten
 
-
 7.  References
+
+
+
+
+
+Holsten & Hunt            Expires July 31, 2009                 [Page 4]
+
+Internet-Draft           The 'about' URI scheme             January 2009
+
+
+7.1.  Normative References
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -210,41 +237,44 @@ Abstract
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
 
+7.2.  Informative References
+
    [RFC4395]  Hansen, T., Hardie, T., and L. Masinter, "Guidelines and
               Registration Procedures for New URI Schemes", BCP 115,
               RFC 4395, February 2006.
-
-Editorial Comments
-
-   [NOTE-1]  JH: It may be reasonable to also define an about URN scheme
-             and define about URIs as a provisional shorthand for those
-             URNs.
-
-   [NOTE-2]  JH: draft when an application should create a new about
-             URI, how to handle unknown about URIs
-
-   [NOTE-3]  JH: Should undefined about URIs redirect to about:blank?
-
-   [NOTE-4]  JH: add references to historical implementations and
-             related work.
-
-   [NOTE-5]  JH: convert to use meanings from RFC2119.
-
-   [NOTE-6]  LH: insert information about Origin
-
 
 Authors' Addresses
 
    Joseph Anthony Pasquale Holsten
    N/A
 
-   Email: joseph@josephholsten.com
+   EMail: joseph@josephholsten.com
    URI:   http://josephholsten.com
 
 
    Lachlan Hunt
    Opera Software, ASA.
 
-   Email: lachlan.hunt@lachy.id.au
+   EMail: lachlan.hunt@lachy.id.au
    URI:   http://lachy.id.au/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Holsten & Hunt            Expires July 31, 2009                 [Page 5]
+

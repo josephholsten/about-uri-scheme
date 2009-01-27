@@ -1,0 +1,15 @@
+This is an Internet Draft in bleeding edge xml2rfc format. Also included are relatively up to date versions in ASCII text and HTML. Since the text version is intended to be normative, it is generated without comments or editorial marks. While being developed, the HTML version will include those comments and marks.
+
+The text version may be generated with the command
+
+  xml2rfc draft-holsten-about-uri-scheme.xml
+  
+The HTML version requires the following lines be uncommented
+
+  <?rfc comments='yes'?>
+  <?rfc inline='yes' ?>
+  <?rfc editing='yes' ?>
+
+and is generated with the command
+
+  xml2html draft-holsten-about-uri-scheme.xml

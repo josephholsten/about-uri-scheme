@@ -4,8 +4,13 @@
   <!ENTITY RFC5234 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5234.xml">
   <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
   <!ENTITY RFC4395 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4395.xml">
+  <!ENTITY RFC4949 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4949.xml">
 ]>
-<?rfc comments='yes'?>
+<!-- <?rfc comments='yes'?> -->
+<!-- <?rfc inline='yes' ?> -->
+<!-- <?rfc editing='yes' ?> -->
+<?rfc strict='yes' ?>
+<?rfc rfcedstyle='yes' ?>
 <?rfc symrefs='yes'?>
 
 <rfc category="info" ipr="trust200811" docName="draft-holsten-about-uri-scheme-00">
@@ -87,42 +92,48 @@
       <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
     </section>
     <section anchor="security" title="Security Considerations">
+      <!-- must play nice with RFC3552 and RFC4949 -->
       <t>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.</t>      
-      <t>Some applications are known to display arbitrary HTML following the scheme. Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI. About URIs should not cause the application to modify any data. Applications should not use about URIs to access files or other sensitive information.</t>
-      <t>About URIs may identify resources which show private information. This sensitive information should never be included in about URIs.<cref anchor="NOTE-5" source="JH">convert to use meanings from RFC2119.</cref><cref anchor="NOTE-6" source="LH">insert information about Origin</cref></t>
+      <t>Some applications are known to display arbitrary HTML following the scheme.<cref source="JH">see application program in RFC4949</cref> Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI.<cref source="JH">see active content in RFC4949</cref> About URIs should not cause the application to modify any data. Applications should not use about URIs to access, or erase files or other sensitive information.</t>
+      <t>About URIs may identify resources which show sensitive information. This data SHOULD NOT be exposed in about URIs.<cref anchor="NOTE-5" source="JH">convert to use meanings from RFC2119.</cref><cref anchor="NOTE-6" source="LH">insert information about Origin</cref><cref source="JH">see browser in RFC4949</cref>></t>
     </section>
     <section title="IANA Considerations">
+      <!-- must play nice with RFC2434, RFC4395 -->
       <t>This specification requests the IANA permanently register the 
       about URI scheme as specified in this document and summarized in
       the following template, per <xref target="RFC4395" />:</t>
       <t><list style="hanging">
-        <t hangText="URI Scheme Name:">about</t>
+        <t hangText="URI scheme name:">about</t>
         <t hangText="Status:">Provisional</t>
-        <t hangText="URI Scheme Syntax:"> see <xref target="syntax" /></t>
-        <t hangText="URI Scheme Semantics:"> see <xref target="intro" /></t>
-        <t hangText="Character Encoding Considerations:">percent-encoding is allowed in 'segment' components (see <xref target="syntax" />)</t>
-        <t hangText="Intended usage:">see <xref target="intro" /></t>
+        <t hangText="URI scheme syntax:">See <xref target="syntax" /></t>
+        <t hangText="URI scheme semantics:">See <xref target="intro" /></t>
+        <t hangText="Encoding considerations:">Percent-encoding is allowed in 'segment' components (see <xref target="syntax" />)</t>
+        <t hangText="Intended usage:">See <xref target="intro" /></t>
         <t hangText="Applications and/or protocols that use this URI scheme name:">Any applications that use URIs as identifiers for private resources, such as web browsers.</t>
-        <t hangText="Interoperability considerations:">Applications may choose to interpret about URIs differently. About URIs should only be expected to work correctly within the same application.</t>
-        <t hangText="Security considerations:">see <xref target="security" /></t>
-        <t hangText="Relevant publications:">none</t>
+        <t hangText="Interoperability considerations:">Applications are only required to support about:blank, and may choose to interpret other about URIs differently. Other about URIs should only be expected to work correctly within the same application.</t>
+        <t hangText="Security considerations:">See <xref target="security" /></t>
+        <t hangText="Relevant publications:">None</t>
         <t hangText="Contact:">Joseph Holsten (joseph@josephholsten.com)</t>
         <t hangText="Author/Change controller:">Joseph Holsten</t>
         </list></t>
     </section>
   </middle>
   <back>
-    <references>
-      &RFC3986; <!-- URI Generic Syntax, normative -->
-      &RFC5234; <!-- ABNF, normative -->
-      &RFC2119; <!-- RFC Key Words, normative -->
-      &RFC4395; <!-- New URI Schemes, inform -->
+    <references title="Normative References">
+      &RFC3986; <!-- URI Generic Syntax -->
+      &RFC5234; <!-- ABNF -->
+      &RFC2119; <!-- RFC Key Words -->
+    </references>
+    
+    <references  title="Informative References">
+      &RFC4395; <!-- New URI Schemes -->
     </references>
   </back>
 </rfc>
 
 <!--
 notes
+investigate guidelines RFC2434 (IANA Considerations), RFC3552 (Security considerations)
 validator: http://www.fenron.com/~fenner/ietf/xml2rfc-valid/
 citation libraries: http://xml.resource.org/
 -->

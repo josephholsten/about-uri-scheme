@@ -149,7 +149,7 @@
 </table></td></tr></table>
 <h1><br />The 'about' URI scheme<br />draft-holsten-about-uri-scheme-00</h1>
 
-<h3>Status of this Memo</h3>
+<h3>Status of This Memo</h3>
 <p>
 This Internet-Draft is submitted to IETF in full
 conformance with the provisions of BCP&nbsp;78 and BCP&nbsp;79.</p>
@@ -186,77 +186,77 @@ to this document.</p>
 
 <h3>Abstract</h3>
 
-<p>This document specifies the URI (Uniform Resource Identifier) scheme "about". About URIs are designed to be an internal, application-level identifier.  Unlike many other URI schemes, the resolution of, and resources represented by, about URIs are left entirely to each individual application.
+<p><sup><small>1</small></sup>This document specifies the URI (Uniform Resource Identifier) scheme "about". About URIs are designed to be an internal, application-level identifier.  Unlike many other URI schemes, the resolution of, and resources represented by, about URIs are left entirely to each individual application.
 </p>
 <a name="intro"></a><br /><hr />
 <a name="rfc.section.1"></a><h3>1.&nbsp;
 Introduction</h3>
 
-<p>An about URI is designed to be used internally by applications for almost any desired purpose.  Such URIs have commonly been used by web browsers for proving access to built-in functionality, such as application preferences and settings, information about the application, or "easter eggs".
+<p><sup><small>2</small></sup>An about URI is designed to be used internally by applications for almost any desired purpose.  Such URIs have commonly been used by web browsers for proving access to built-in functionality, such as application preferences and settings, information about the application, or "easter eggs".
 </p>
-<p>About URIs are more memorable than an equivalent urn or tag URI. Using an http URI would not only be less memorable, but also longer and semantically confusing.  While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> URI is ubiquitous, and some browsers also provide other resources with the about scheme, including those in <a class='info' href='#examples'>Section&nbsp;3.2<span> (</span><span class='info'>Examples</span><span>)</span></a>.<a class='info' href='#comment.NOTE-1'>[NOTE-1]<span> (</span><span class='info'>JH: It may be reasonable to also define an about URN scheme and define about URIs as a provisional shorthand for those URNs.</span><span>)</span></a><a name='NOTE-1'></a>
+<p><sup><small>3</small></sup>About URIs are more memorable than an equivalent urn or tag URI. Using an http URI would not only be less memorable, but also longer and semantically confusing.  While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> URI is ubiquitous, and some browsers also provide other resources with the about scheme, including those in <a class='info' href='#examples'>Section&nbsp;3.2<span> (</span><span class='info'>Examples</span><span>)</span></a>.<a class='info' href='#comment.NOTE-1'>[NOTE-1]<span> (</span><span class='info'>JH: It may be reasonable to also define an about URN scheme and define about URIs as a provisional shorthand for those URNs.</span><span>)</span></a><a name='NOTE-1'></a>
 </p>
-<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
+<p><sup><small>4</small></sup>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
 </p>
 <a name="syntax"></a><br /><hr />
 <a name="rfc.section.2"></a><h3>2.&nbsp;
 URI Syntax</h3>
 
-<p>The general syntax of a about URI, in <a class='info' href='#RFC5234'>ABNF<span> (</span><span class='info'>Crocker, D. and P. Overell, &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; January&nbsp;2008.</span><span>)</span></a> [RFC5234] is:
+<p><sup><small>5</small></sup>The general syntax of a about URI, in <a class='info' href='#RFC5234'>ABNF<span> (</span><span class='info'>Crocker, D. and P. Overell, &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; January&nbsp;2008.</span><span>)</span></a> [RFC5234] is:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
           <dfn>abouturi</dfn> = "<span class='str'>about:</span>" <cite class='id'>segment</cite>
 </pre></div>
-<p>where "segment" is imported from <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a>. About URIs are always escaped, as per <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+<p><sup><small>6</small></sup>where "segment" is imported from <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a>. About URIs are always escaped, as per <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a>.
 </p>
-<p>No relative URI syntax is defined.
+<p><sup><small>7</small></sup>No relative URI syntax is defined.
 </p>
 <a name="anchor1"></a><br /><hr />
 <a name="rfc.section.3"></a><h3>3.&nbsp;
 Resolving About URIs</h3>
 
-<p>In general, applications are free to resolve any about URI to any
+<p><sup><small>8</small></sup>In general, applications are free to resolve any about URI to any
       resource, either internal or external, or redirect to an alternative
       URI, with <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> being the only exception.
 </p>
-<p>As about URIs are designed to be internal to each application, there
+<p><sup><small>9</small></sup>As about URIs are designed to be internal to each application, there
       is no expectation of any URI, except <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a>, returning the same
       resource among different applications.  However, it is worth noting
       that some conventions have arisen for providing particular
       functionality via common about URIs.
 </p>
-<p>Because about URIs identify application specific information, applications should not need to retrieve remote information for such a resource.<a class='info' href='#comment.NOTE-2'>[NOTE-2]<span> (</span><span class='info'>JH: draft when an application should create a new about URI, how to handle unknown about URIs</span><span>)</span></a><a name='NOTE-2'></a>
+<p><sup><small>10</small></sup>Because about URIs identify application specific information, applications should not need to retrieve remote information for such a resource.<a class='info' href='#comment.NOTE-2'>[NOTE-2]<span> (</span><span class='info'>JH: draft when an application should create a new about URI, how to handle unknown about URIs</span><span>)</span></a><a name='NOTE-2'></a>
 </p>
-<p>The <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> URI is the only about URI reserved by this
+<p><sup><small>11</small></sup>The <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> URI is the only about URI reserved by this
       specification.<a class='info' href='#comment.NOTE-3'>[NOTE-3]<span> (</span><span class='info'>JH: Should undefined about URIs redirect to about:blank?</span><span>)</span></a><a name='NOTE-3'></a>
 </p>
 <a name="blank"></a><br /><hr />
 <a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
 about:blank</h3>
 
-<p>This URI identifies an empty resource. If the application may use a document of MIME type 'text/html' and character encoding 'UTF-8', about:blank SHOULD be represented with an empty document. Other representations are not defined.
+<p><sup><small>12</small></sup>This URI identifies an empty resource. If the application may use a document of MIME type 'text/html' and character encoding 'UTF-8', about:blank SHOULD be represented with an empty document. Other representations are not defined.
 </p>
 <a name="examples"></a><br /><hr />
 <a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
 Examples</h3>
 
-<p>
+<p><sup><small>13</small></sup>
           The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
         </p>
 <blockquote class="text"><dl>
 <dt>about:config</dt>
-<dd>Commonly provides access to application preferences and settings
+<dd><sup><small>14</small></sup>Commonly provides access to application preferences and settings
 </dd>
 <dt>about:cache</dt>
-<dd>Commonly provides access to information about resources stored in the browsers cache.
+<dd><sup><small>15</small></sup>Commonly provides access to information about resources stored in the browsers cache.
 </dd>
 <dt>about:plugins</dt>
-<dd>Commonly provides access to information about installed plugins
+<dd><sup><small>16</small></sup>Commonly provides access to information about installed plugins
 </dd>
 <dt>about:mozilla</dt>
-<dd>An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla
+<dd><sup><small>17</small></sup>An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla
 </dd>
 <dt>about:internets</dt>
-<dd>An easter egg supported by Google Chrome depicting the internet as a series of tubes.
+<dd><sup><small>18</small></sup>An easter egg supported by Google Chrome depicting the internet as a series of tubes.
 </dd>
 </dl></blockquote>
 
@@ -264,68 +264,72 @@ Examples</h3>
 <a name="rfc.section.4"></a><h3>4.&nbsp;
 Acknowledgements</h3>
 
-<p>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<a class='info' href='#comment.NOTE-4'>[NOTE-4]<span> (</span><span class='info'>JH: add references to historical implementations and related work.</span><span>)</span></a><a name='NOTE-4'></a>
+<p><sup><small>19</small></sup>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<a class='info' href='#comment.NOTE-4'>[NOTE-4]<span> (</span><span class='info'>JH: add references to historical implementations and related work.</span><span>)</span></a><a name='NOTE-4'></a>
 </p>
 <a name="security"></a><br /><hr />
 <a name="rfc.section.5"></a><h3>5.&nbsp;
 Security Considerations</h3>
 
-<p>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.
+<p><sup><small>20</small></sup>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.
 </p>
-<p>Some applications are known to display arbitrary HTML following the scheme. Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI. About URIs should not cause the application to modify any data. Applications should not use about URIs to access files or other sensitive information.
+<p><sup><small>21</small></sup>Some applications are known to display arbitrary HTML following the scheme.<a class='info' href='#comment.anchor3'>[anchor3]<span> (</span><span class='info'>JH: see application program in RFC4949</span><span>)</span></a><a name='anchor3'></a> Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI.<a class='info' href='#comment.anchor4'>[anchor4]<span> (</span><span class='info'>JH: see active content in RFC4949</span><span>)</span></a><a name='anchor4'></a> About URIs should not cause the application to modify any data. Applications should not use about URIs to access, or erase files or other sensitive information.
 </p>
-<p>About URIs may identify resources which show private information. This sensitive information should never be included in about URIs.<a class='info' href='#comment.NOTE-5'>[NOTE-5]<span> (</span><span class='info'>JH: convert to use meanings from RFC2119.</span><span>)</span></a><a name='NOTE-5'></a><a class='info' href='#comment.NOTE-6'>[NOTE-6]<span> (</span><span class='info'>LH: insert information about Origin</span><span>)</span></a><a name='NOTE-6'></a>
+<p><sup><small>22</small></sup>About URIs may identify resources which show sensitive information. This data SHOULD NOT be exposed in about URIs.<a class='info' href='#comment.NOTE-5'>[NOTE-5]<span> (</span><span class='info'>JH: convert to use meanings from RFC2119.</span><span>)</span></a><a name='NOTE-5'></a><a class='info' href='#comment.NOTE-6'>[NOTE-6]<span> (</span><span class='info'>LH: insert information about Origin</span><span>)</span></a><a name='NOTE-6'></a><a class='info' href='#comment.anchor5'>[anchor5]<span> (</span><span class='info'>JH: see browser in RFC4949</span><span>)</span></a><a name='anchor5'></a>>
 </p>
-<a name="anchor3"></a><br /><hr />
+<a name="anchor6"></a><br /><hr />
 <a name="rfc.section.6"></a><h3>6.&nbsp;
 IANA Considerations</h3>
 
-<p>This specification requests the IANA permanently register the 
+<p><sup><small>23</small></sup>This specification requests the IANA permanently register the 
       about URI scheme as specified in this document and summarized in
       the following template, per <a class='info' href='#RFC4395'>[RFC4395]<span> (</span><span class='info'>Hansen, T., Hardie, T., and L. Masinter, &ldquo;Guidelines and Registration Procedures for New URI Schemes,&rdquo; February&nbsp;2006.</span><span>)</span></a>:
 </p>
-<p></p>
+<p><sup><small>24</small></sup></p>
 <blockquote class="text"><dl>
-<dt>URI Scheme Name:</dt>
-<dd>about
+<dt>URI scheme name:</dt>
+<dd><sup><small>25</small></sup>about
 </dd>
 <dt>Status:</dt>
-<dd>Provisional
+<dd><sup><small>26</small></sup>Provisional
 </dd>
-<dt>URI Scheme Syntax:</dt>
-<dd> see <a class='info' href='#syntax'>Section&nbsp;2<span> (</span><span class='info'>URI Syntax</span><span>)</span></a>
+<dt>URI scheme syntax:</dt>
+<dd><sup><small>27</small></sup>See <a class='info' href='#syntax'>Section&nbsp;2<span> (</span><span class='info'>URI Syntax</span><span>)</span></a>
 </dd>
-<dt>URI Scheme Semantics:</dt>
-<dd> see <a class='info' href='#intro'>Section&nbsp;1<span> (</span><span class='info'>Introduction</span><span>)</span></a>
+<dt>URI scheme semantics:</dt>
+<dd><sup><small>28</small></sup>See <a class='info' href='#intro'>Section&nbsp;1<span> (</span><span class='info'>Introduction</span><span>)</span></a>
 </dd>
-<dt>Character Encoding Considerations:</dt>
-<dd>percent-encoding is allowed in 'segment' components (see <a class='info' href='#syntax'>Section&nbsp;2<span> (</span><span class='info'>URI Syntax</span><span>)</span></a>)
+<dt>Encoding considerations:</dt>
+<dd><sup><small>29</small></sup>Percent-encoding is allowed in 'segment' components (see <a class='info' href='#syntax'>Section&nbsp;2<span> (</span><span class='info'>URI Syntax</span><span>)</span></a>)
 </dd>
 <dt>Intended usage:</dt>
-<dd>see <a class='info' href='#intro'>Section&nbsp;1<span> (</span><span class='info'>Introduction</span><span>)</span></a>
+<dd><sup><small>30</small></sup>See <a class='info' href='#intro'>Section&nbsp;1<span> (</span><span class='info'>Introduction</span><span>)</span></a>
 </dd>
 <dt>Applications and/or protocols that use this URI scheme name:</dt>
-<dd>Any applications that use URIs as identifiers for private resources, such as web browsers.
+<dd><sup><small>31</small></sup>Any applications that use URIs as identifiers for private resources, such as web browsers.
 </dd>
 <dt>Interoperability considerations:</dt>
-<dd>Applications may choose to interpret about URIs differently. About URIs should only be expected to work correctly within the same application.
+<dd><sup><small>32</small></sup>Applications are only required to support about:blank, and may choose to interpret other about URIs differently. Other about URIs should only be expected to work correctly within the same application.
 </dd>
 <dt>Security considerations:</dt>
-<dd>see <a class='info' href='#security'>Section&nbsp;5<span> (</span><span class='info'>Security Considerations</span><span>)</span></a>
+<dd><sup><small>33</small></sup>See <a class='info' href='#security'>Section&nbsp;5<span> (</span><span class='info'>Security Considerations</span><span>)</span></a>
 </dd>
 <dt>Relevant publications:</dt>
-<dd>none
+<dd><sup><small>34</small></sup>None
 </dd>
 <dt>Contact:</dt>
-<dd>Joseph Holsten (joseph@josephholsten.com)
+<dd><sup><small>35</small></sup>Joseph Holsten (joseph@josephholsten.com)
 </dd>
 <dt>Author/Change controller:</dt>
-<dd>Joseph Holsten
+<dd><sup><small>36</small></sup>Joseph Holsten
 </dd>
 </dl></blockquote>
 
+<a name="rfc.references"></a><br /><hr />
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+References</h3>
+
 <a name="rfc.references1"></a><br /><hr />
-<h3>7.&nbsp;References</h3>
+<h3>7.1.&nbsp;Normative References</h3>
 <table width="99%" border="0">
 <tr><td class="author-text" valign="top"><a name="RFC3986">[RFC3986]</a></td>
 <td class="author-text"><a href="mailto:timbl@w3.org">Berners-Lee, T.</a>, <a href="mailto:fielding@gbiv.com">Fielding, R.</a>, and <a href="mailto:LMM@acm.org">L. Masinter</a>, &ldquo;<a href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a>,&rdquo; STD&nbsp;66, RFC&nbsp;3986, January&nbsp;2005 (<a href="ftp://ftp.isi.edu/in-notes/rfc3986.txt">TXT</a>, <a href="http://xml.resource.org/public/rfc/html/rfc3986.html">HTML</a>, <a href="http://xml.resource.org/public/rfc/xml/rfc3986.xml">XML</a>).</td></tr>
@@ -333,43 +337,13 @@ IANA Considerations</h3>
 <td class="author-text">Crocker, D. and P. Overell, &ldquo;<a href="http://tools.ietf.org/html/rfc5234">Augmented BNF for Syntax Specifications: ABNF</a>,&rdquo; STD&nbsp;68, RFC&nbsp;5234, January&nbsp;2008 (<a href="ftp://ftp.isi.edu/in-notes/rfc5234.txt">TXT</a>).</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
 <td class="author-text"><a href="mailto:sob@harvard.edu">Bradner, S.</a>, &ldquo;<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; BCP&nbsp;14, RFC&nbsp;2119, March&nbsp;1997 (<a href="ftp://ftp.isi.edu/in-notes/rfc2119.txt">TXT</a>, <a href="http://xml.resource.org/public/rfc/html/rfc2119.html">HTML</a>, <a href="http://xml.resource.org/public/rfc/xml/rfc2119.xml">XML</a>).</td></tr>
-<tr><td class="author-text" valign="top"><a name="RFC4395">[RFC4395]</a></td>
-<td class="author-text">Hansen, T., Hardie, T., and L. Masinter, &ldquo;<a href="http://tools.ietf.org/html/rfc4395">Guidelines and Registration Procedures for New URI Schemes</a>,&rdquo; BCP&nbsp;115, RFC&nbsp;4395, February&nbsp;2006 (<a href="ftp://ftp.isi.edu/in-notes/rfc4395.txt">TXT</a>).</td></tr>
 </table>
 
-<a name="rfc.comments"></a><br /><hr />
-<h3>Editorial Comments</h3>
-<table border="0">
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-1">
-NOTE-1</a><a name="comment.NOTE-1"></a>:
-</td><td class="author-text">
-JH: It may be reasonable to also define an about URN scheme and define about URIs as a provisional shorthand for those URNs.</td></tr>
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-2">
-NOTE-2</a><a name="comment.NOTE-2"></a>:
-</td><td class="author-text">
-JH: draft when an application should create a new about URI, how to handle unknown about URIs</td></tr>
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-3">
-NOTE-3</a><a name="comment.NOTE-3"></a>:
-</td><td class="author-text">
-JH: Should undefined about URIs redirect to about:blank?</td></tr>
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-4">
-NOTE-4</a><a name="comment.NOTE-4"></a>:
-</td><td class="author-text">
-JH: add references to historical implementations and related work.</td></tr>
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-5">
-NOTE-5</a><a name="comment.NOTE-5"></a>:
-</td><td class="author-text">
-JH: convert to use meanings from RFC2119.</td></tr>
-<tr><td class="author-text" valign="top">
-<a class="info" href="#NOTE-6">
-NOTE-6</a><a name="comment.NOTE-6"></a>:
-</td><td class="author-text">
-LH: insert information about Origin</td></tr>
+<a name="rfc.references2"></a><br /><hr />
+<h3>7.2.&nbsp;Informative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC4395">[RFC4395]</a></td>
+<td class="author-text">Hansen, T., Hardie, T., and L. Masinter, &ldquo;<a href="http://tools.ietf.org/html/rfc4395">Guidelines and Registration Procedures for New URI Schemes</a>,&rdquo; BCP&nbsp;115, RFC&nbsp;4395, February&nbsp;2006 (<a href="ftp://ftp.isi.edu/in-notes/rfc4395.txt">TXT</a>).</td></tr>
 </table>
 
 <a name="rfc.authors"></a><br /><hr />
@@ -379,7 +353,7 @@ LH: insert information about Origin</td></tr>
 <td class="author-text">Joseph Anthony Pasquale Holsten</td></tr>
 <tr><td class="author-text">&nbsp;</td>
 <td class="author-text">N/A</td></tr>
-<tr><td class="author" align="right">Email:&nbsp;</td>
+<tr><td class="author" align="right">EMail:&nbsp;</td>
 <td class="author-text"><a href="mailto:joseph@josephholsten.com">joseph@josephholsten.com</a></td></tr>
 <tr><td class="author" align="right">URI:&nbsp;</td>
 <td class="author-text"><a href="http://josephholsten.com">http://josephholsten.com</a></td></tr>
@@ -388,7 +362,7 @@ LH: insert information about Origin</td></tr>
 <td class="author-text">Lachlan Hunt</td></tr>
 <tr><td class="author-text">&nbsp;</td>
 <td class="author-text">Opera Software, ASA.</td></tr>
-<tr><td class="author" align="right">Email:&nbsp;</td>
+<tr><td class="author" align="right">EMail:&nbsp;</td>
 <td class="author-text"><a href="mailto:lachlan.hunt@lachy.id.au">lachlan.hunt@lachy.id.au</a></td></tr>
 <tr><td class="author" align="right">URI:&nbsp;</td>
 <td class="author-text"><a href="http://lachy.id.au/">http://lachy.id.au/</a></td></tr>
