@@ -4,8 +4,8 @@
 Network Working Group                                         J. Holsten
 Internet-Draft                                                       N/A
 Intended status: Informational                                   L. Hunt
-Expires: July 30, 2009                              Opera Software, ASA.
-                                                        January 26, 2009
+Expires: July 31, 2009                              Opera Software, ASA.
+                                                        January 27, 2009
 
 
                          The 'about' URI scheme
@@ -32,7 +32,7 @@ Status of this Memo
    The list of Internet-Draft Shadow Directories can be accessed at
    http://www.ietf.org/shadow.html.
 
-   This Internet-Draft will expire on July 30, 2009.
+   This Internet-Draft will expire on July 31, 2009.
 
 Copyright Notice
 
@@ -49,13 +49,9 @@ Copyright Notice
 Abstract
 
    This document specifies the URI (Uniform Resource Identifier) scheme
-   "about".  About URIs describe resources within a browser or other
-   software interpreting URIs.
-
-   This document describes the "about" Uniform Resource Identifier (URI)
-   scheme.  About URIs are designed to be an internal, application-level
-   identifier.  Unlike many other URI schemes, the resolution of, and
-   resources represented by, about URIs is left entirely to each
+   "about".  About URIs are designed to be an internal, application-
+   level identifier.  Unlike many other URI schemes, the resolution of,
+   and resources represented by, about URIs are left entirely to each
    individual application.
 
 
@@ -67,61 +63,37 @@ Abstract
    application preferences and settings, information about the
    application, or "easter eggs".
 
-
-2.  Description
-
-   About URIs provide a namespace for browsers and other URI
-   interpreters to expose implementation specific information.  While
-   any number of existing schemes could be used to identify such
-   resources, about URIs have become the de facto standard.  Browsers
-   already use the about scheme.  The about:blank URI is ubiquitous, and
-   some browsers also provide other resources with the about scheme,
-   including about:cache and about:version.  A frighteningly large list
-   of about URIs <http://www.rigaut.com/benoit/CERN/about/>.
-
-   About URIs are also more memorable than an equivalent urn or tag URI.
+   About URIs are more memorable than an equivalent urn or tag URI.
    Using an http URI would not only be less memorable, but also longer
-   and semantically confusing.
+   and semantically confusing.  While any number of existing schemes
+   could be used to identify such resources, about URIs have become the
+   de facto standard.  Browsers already use the about scheme.  The
+   about:blank (Section 3.1) URI is ubiquitous, and some browsers also
+   provide other resources with the about scheme, including those in
+   Section 3.2.[NOTE-1]
 
-   EDITORS NOTE: It may be reasonable to also define an about URN scheme
-   and define about URIs as a provisional shorthand for those URNs.
-
-   Some applications need to have identifiers to system resources.  It
-   is often reasonable to leave the interpretation of a resource up to
-   the implementation.  Generally these will be resources within the
-   application.
-
-   EDITOR'S NOTE: Contrast these to file URIs
-
-   About URIs are useful because they identify resources the browser
-   does not need to retrieve.
-
-   Since about is already in use by most browsers, using an unknown
-   about URI as a SYSTEM identifier is generally more compatible with
-   SGML parsers than an unknown PUBLIC identifier.
-   <http://lists.w3.org/Archives/Public/public-html/2009Jan/0160.html>
-
-   EDITOR'S NOTE: draft when an application should create a new about
-   URI, how to handle unknown about URIs
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in [RFC2119].
 
 
-3.  URI Syntax
+2.  URI Syntax
 
-   The general syntax of a tag URI, in ABNF [RFC5234] is:
+   The general syntax of a about URI, in ABNF [RFC5234] is:
 
              abouturi = "about:" segment
 
    where "segment" is imported from [RFC3986].  About URIs are always
-   escaped, as per [RFC3986]
+   escaped, as per [RFC3986].
 
    No relative URI syntax is defined.
 
 
-4.  Resolving About URIs
+3.  Resolving About URIs
 
    In general, applications are free to resolve any about URI to any
    resource, either internal or external, or redirect to an alternative
-   URI, with about:blank (Section 3.1) being the only exception.
+   URI, with about:blank being the only exception.
 
    As about URIs are designed to be internal to each application, there
    is no expectation of any URI, except about:blank, returning the same
@@ -129,53 +101,49 @@ Abstract
    that some conventions have arisen for providing particular
    functionality via common about URIs.
 
+   Because about URIs identify application specific information,
+   applications should not need to retrieve remote information for such
+   a resource.[NOTE-2]
+
    The about:blank URI is the only about URI reserved by this
-   specification.
+   specification.[NOTE-3]
 
-4.1.  about:blank
+3.1.  about:blank
 
-   Applications resolving this URI must return an empty resource,
-   containing nothing.
+   This URI identifies an empty resource.  If the application may use a
+   document of MIME type 'text/html' and character encoding 'UTF-8',
+   about:blank SHOULD be represented with an empty document.  Other
+   representations are not defined.
 
-4.2.  Examples
+3.2.  Examples
 
-   The following are examples of about URIs that a browser could
-   resolve.  They are not guaranteed to be resolvable by every browser.
+   The following examples illustrate some known URIs supported by
+   existing applications.  They are not guaranteed to be resolvable by
+   every application.
 
-      about:
+   about:config  Commonly provides access to application preferences and
+      settings
 
-      about:blank
+   about:cache  Commonly provides access to information about resources
+      stored in the browsers cache.
 
-      about:sgml-compat
-
-      about:config Commonly provides access to application preferences
-      and settings
-
-      about:cache Commonly provides access to information about
-      resources stored in the browsers cache.
-
-      about:plugins Commonly provides access to information about
+   about:plugins  Commonly provides access to information about
       installed plugins
 
-      about:mozilla An easter egg supported by Mozilla showing a passage
+   about:mozilla  An easter egg supported by Mozilla showing a passage
       from the fictional Book of Mozilla
 
-      about:internets An easter egg supported by Google Chrome depicting
+   about:internets  An easter egg supported by Google Chrome depicting
       the internet as a series of tubes.
 
 
-5.  Acknowledgements
+4.  Acknowledgements
 
-   This I-D was made possible thanks to the suggestion [1] of Henri
-   Sivonen and the interest [2] of Ian Hickson.  Some points [3] from
-   Lachlan Hunt. also points [4] by Larry Masinter.
-
-   EDITOR'S NOTE: add references to historical implementations and
-   related work. remove references to discussion. insert information
-   about Origin
+   This document was made possible thanks to the input of Henri Sivonen,
+   Ian Hickson and Larry Masinter.[NOTE-4]
 
 
-6.  Security Considerations
+5.  Security Considerations
 
    There is no guarantee that an application will understand any about
    URI provided to it.  An about URI may not resolve to the expected
@@ -190,12 +158,11 @@ Abstract
    sensitive information.
 
    About URIs may identify resources which show private information.
-   This sensitive information should never be included in about URIs.
+   This sensitive information should never be included in about
+   URIs.[NOTE-5][NOTE-6]
 
-   EDITOR'S NOTE: convert to use meanings from [RFC2119].
 
-
-7.  IANA Considerations
+6.  IANA Considerations
 
    This specification requests the IANA permanently register the about
    URI scheme as specified in this document and summarized in the
@@ -205,14 +172,14 @@ Abstract
 
    Status:  Provisional
 
-   URI Scheme Syntax:  see Section 3
+   URI Scheme Syntax:  see Section 2
 
-   URI Scheme Semantics:  see Section 2
+   URI Scheme Semantics:  see Section 1
 
    Character Encoding Considerations:  percent-encoding is allowed in
-      'segment' components (see Section 3)
+      'segment' components (see Section 2)
 
-   Intended usage:  see Section 2
+   Intended usage:  see Section 1
 
    Applications and/or protocols that use this URI scheme name:  Any
       applications that use URIs as identifiers for private resources,
@@ -222,7 +189,7 @@ Abstract
       interpret about URIs differently.  About URIs should only be
       expected to work correctly within the same application.
 
-   Security considerations:  see Section 6
+   Security considerations:  see Section 5
 
    Relevant publications:  none
 
@@ -231,7 +198,7 @@ Abstract
    Author/Change controller:  Joseph Holsten
 
 
-8.  References
+7.  References
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -247,16 +214,23 @@ Abstract
               Registration Procedures for New URI Schemes", BCP 115,
               RFC 4395, February 2006.
 
-   [1]  <http://lists.w3.org/Archives/Public/public-html/2009Jan/
-        0164.html>
+Editorial Comments
 
-   [2]  <http://lists.w3.org/Archives/Public/public-html/2009Jan/0322>
+   [NOTE-1]  JH: It may be reasonable to also define an about URN scheme
+             and define about URIs as a provisional shorthand for those
+             URNs.
 
-   [3]  <http://lists.w3.org/Archives/Public/public-html/2009Jan/
-        0167.html>
+   [NOTE-2]  JH: draft when an application should create a new about
+             URI, how to handle unknown about URIs
 
-   [4]  <http://lists.w3.org/Archives/Public/public-html/2009Jan/
-        0325.html>
+   [NOTE-3]  JH: Should undefined about URIs redirect to about:blank?
+
+   [NOTE-4]  JH: add references to historical implementations and
+             related work.
+
+   [NOTE-5]  JH: convert to use meanings from RFC2119.
+
+   [NOTE-6]  LH: insert information about Origin
 
 
 Authors' Addresses
@@ -273,5 +247,4 @@ Authors' Addresses
 
    Email: lachlan.hunt@lachy.id.au
    URI:   http://lachy.id.au/
-
 
