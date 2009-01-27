@@ -1,0 +1,111 @@
+<?xml version='1.0'?>
+<!DOCTYPE rfc SYSTEM 'rfc2629.dtd' [
+  <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+  <!ENTITY RFC5234 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5234.xml">
+  <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
+  <!ENTITY RFC4395 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4395.xml">
+]>
+
+<rfc category="info" ipr="full3978" docName="draft-holsten-about-uri-scheme-00">
+  <front>
+    <title>The 'about' URI scheme</title>
+    <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
+      <organization>N/A</organization>
+      <address>
+        <postal>
+          <street>5813 E 64th Place</street>
+          <city>Tulsa</city>
+          <region>OK</region>
+          <code>74136</code>
+          <country>US</country>
+        </postal>
+        <email>joseph@josephholsten.com</email>
+        <uri>http://josephholsten.com</uri>
+      </address>
+    </author>
+    <date month="January" year="2009" />
+    <area>Internet</area>
+    <keyword>I-D</keyword>
+    <keyword>Internet-Draft</keyword>
+    <keyword>URI</keyword>
+    <keyword>Uniform Resource Identifier</keyword>
+    <keyword>about</keyword>
+    <abstract>
+      <t>This document specifies the URI (Uniform Resource Identifier) scheme "about".  About URIs describe resources within a browser or other software interpreting URIs.</t>
+    </abstract>
+  </front>
+  <middle>
+    <section anchor="desc" title="Description">
+      <t>About URIs provide a namespace for browsers and other URI interpreters to expose implementation specific information. While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The about:blank URI is ubiquitous, and some browsers also provide other resources with the about scheme, including about:cache and about:version. A frighteningly large list of about URIs <eref target="http://www.rigaut.com/benoit/CERN/about/" />.</t>
+      <t>About URIs are also more memorable than an equivalent urn or tag URI. Using an http URI would not only be less memorable, but also longer and semantically confusing.</t>
+      <t>EDITORS NOTE: It may be reasonable to also define an about URN scheme and define about URIs as a provisional shorthand for those URNs.</t>
+      <!-- consider the motivations for RFC1918 -->
+      <t>Some applications need to have identifiers to system resources. It is often reasonable to leave the interpretation of a resource up to the implementation. Generally these will be resources within the application.</t>
+      <t>EDITOR'S NOTE: Contrast these to file URIs</t>
+      <t>About URIs are useful because they identify resources the browser does not need to retrieve.</t>
+      <t>Since about is already in use by most browsers, using an unknown about URI as a SYSTEM identifier is generally more compatible with SGML parsers than an unknown PUBLIC identifier. <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0160.html" /></t>
+      <t>EDITOR'S NOTE: draft when an application should create a new about URI, how to handle unknown about URIs</t>
+    </section>
+    <section anchor="syntax" title="URI Syntax">
+      <figure>
+        <preamble>The general syntax of a tag URI, in <xref target="RFC5234">ABNF</xref> is:</preamble>
+        <artwork type="abnf">
+          abouturi = "about:" segment
+        </artwork>
+        <postamble>where "segment" is imported from <xref target="RFC3986" />. About URIs are always escaped, as per <xref target="RFC3986" /> </postamble>
+      </figure>
+      <t>No relative URI syntax is defined.</t>
+    </section>
+    <section title="Examples">
+      <t>The following are examples of about URIs that a browser could resolve. They are not guaranteed to be resolvable by every browser.</t>
+      <t><list>
+        <t>about:</t>
+        <t>about:blank</t>
+        <t>about:sgml-compat</t>
+      </list></t>
+    </section>
+    <section title="Acknowledgements">
+      <t>This I-D was made possible thanks to the <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0164.html">suggestion</eref> of Henri Sivonen and the <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0322">interest</eref> of Ian Hickson. Some <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0167.html">points</eref> from Lachlan Hunt. also <eref target="http://lists.w3.org/Archives/Public/public-html/2009Jan/0325.html">points</eref> by Larry Masinter.</t>
+      <t>EDITOR'S NOTE: add references to historical implementations and related work. remove references to discussion.</t>
+    </section>
+    <section anchor="security" title="Security Considerations">
+      <t>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.</t>      
+      <t>Some applications are known to display arbitrary HTML following the scheme. Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI. About URIs should not cause the application to modify any data. Applications should not use about URIs to access files or other sensitive information.</t>
+      <t>About URIs may identify resources which show private information. This sensitive information should never be included in about URIs.</t>
+      <t>EDITOR'S NOTE: convert to use meanings from <xref target="RFC2119" />.</t>
+    </section>
+    <section title="IANA Considerations">
+      <t>This specification requests the IANA permanently register the 
+      about URI scheme as specified in this document and summarized in
+      the following template, per <xref target="RFC4395" />:</t>
+      <t><list style="hanging">
+        <t hangText="URI Scheme Name:">about</t>
+        <t hangText="Status:">Provisional</t>
+        <t hangText="URI Scheme Syntax:"> see <xref target="syntax" /></t>
+        <t hangText="URI Scheme Semantics:"> see <xref target="desc" /></t>
+        <t hangText="Character Encoding Considerations:">percent-encoding is allowed in 'segment' components (see <xref target="syntax" />)</t>
+        <t hangText="Intended usage:">see <xref target="desc" /></t>
+        <t hangText="Applications and/or protocols that use this URI scheme name:">Any applications that use URIs as identifiers for private resources, such as web browsers.</t>
+        <t hangText="Interoperability considerations:">Applications may choose to interpret about URIs differently. About URIs should only be expected to work correctly within the same application.</t>
+        <t hangText="Security considerations:">see <xref target="security" /></t>
+        <t hangText="Relevant publications:">none</t>
+        <t hangText="Contact:">Joseph Holsten (joseph@josephholsten.com)</t>
+        <t hangText="Author/Change controller:">Joseph Holsten</t>
+        </list></t>
+    </section>
+  </middle>
+  <back>
+    <references>
+      &RFC3986; <!-- URI Generic Syntax, normative -->
+      &RFC5234; <!-- ABNF, normative -->
+      &RFC2119; <!-- RFC Key Words, normative -->
+      &RFC4395; <!-- New URI Schemes, inform -->
+    </references>
+  </back>
+</rfc>
+
+<!--
+notes
+validator: http://www.fenron.com/~fenner/ietf/xml2rfc-valid/
+citation libraries: http://xml.resource.org/
+-->
