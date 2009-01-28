@@ -54,10 +54,11 @@
       <figure>
         <preamble>The general syntax of a about URI, in <xref target="RFC5234">ABNF</xref> is:</preamble>
         <artwork type="abnf">
-          abouturi = "about:" segment
+          abouturi = "about:" segment [ "?" query ] [ "#" fragment ]
         </artwork>
-        <postamble>where "segment" is imported from <xref target="RFC3986" />. About URIs are always escaped, as per <xref target="RFC3986" />.</postamble>
+        <postamble>where "segment", "query", and "fragment" are imported from <xref target="RFC3986" />. About URIs are always escaped, as per <xref target="RFC3986" />.</postamble>
       </figure>
+      <t>In the interests of tractability to humans, about URIs should not be minted with percent-encoded parts.  However, the about URI syntax does allow percent-encoded characters in the "pchar" elements defined in <xref target="RFC3986" />.</t>
       <t>No relative URI syntax is defined.</t>
     </section>
     <section title="Resolving About URIs">
