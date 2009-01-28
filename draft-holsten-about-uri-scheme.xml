@@ -17,7 +17,7 @@
   <front>
     <title>The 'about' URI scheme</title>
     <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
-      <organization>N/A</organization>
+      <organization></organization>
       <address>
         <email>joseph@josephholsten.com</email>
         <uri>http://josephholsten.com</uri>
