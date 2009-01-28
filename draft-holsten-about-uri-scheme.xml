@@ -98,7 +98,8 @@
       <!-- must play nice with RFC3552 and RFC4949 -->
       <t>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.</t>      
       <t>Some applications are known to display arbitrary HTML following the scheme.<cref source="JH">see application program in RFC4949</cref> Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI.<cref source="JH">see active content in RFC4949</cref> About URIs should not cause the application to modify any data. Applications should not use about URIs to access, or erase files or other sensitive information.</t>
-      <t>About URIs may identify resources which show sensitive information. This data SHOULD NOT be exposed in about URIs.<cref anchor="NOTE-5" source="JH">convert to use meanings from RFC2119.</cref><cref anchor="NOTE-6" source="LH">insert information about Origin</cref><cref source="JH">see browser in RFC4949</cref>></t>
+      <t>About URIs may identify resources which show sensitive information. This data SHOULD NOT be exposed in about URIs.<cref anchor="NOTE-5" source="JH">convert to use meanings from RFC2119.</cref></t>
+      <t>"The origin of the about:blank Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the about:blank Document is the origin of the creator Document. Otherwise, the origin of the about:blank Document is a globally unique identifier assigned when the new browsing context is created." http://www.whatwg.org/specs/web-apps/current-work/#origin</t>
     </section>
     <section title="IANA Considerations">
       <!-- must play nice with RFC2434, RFC4395 -->
