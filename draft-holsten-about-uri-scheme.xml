@@ -42,6 +42,9 @@
     </abstract>
   </front>
   <middle>
+    <section title="Editorial Note (To be removed by RFC Editor)">
+       <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
+    </section>
     <section anchor="intro" title="Introduction">
       <t>An about URI is designed to be used internally by applications for almost any desired purpose.  Such URIs have commonly been used by web browsers for proving access to built-in functionality, such as application preferences and settings, information about the application, or "easter eggs".</t>
       <t>About URIs are more memorable than an equivalent urn or tag URI. Using an http URI would not only be less memorable, but also longer and semantically confusing.  While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The <xref target="blank">about:blank</xref> URI is ubiquitous, and some browsers also provide other resources with the about scheme, including those in <xref target="examples" />.<cref anchor="NOTE-1" source="JH">It may be reasonable to also define an about URN scheme and define about URIs as a provisional shorthand for those URNs.</cref></t>
