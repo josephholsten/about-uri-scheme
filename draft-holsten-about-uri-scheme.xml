@@ -78,7 +78,7 @@
       specification.<cref anchor="NOTE-3" source="JH">Should undefined about URIs redirect to about:blank?</cref></t>
       
       <section anchor="blank" title="about:blank">
-        <t>This URI identifies an empty resource. If the application may use a document of MIME type 'text/html' and character encoding 'UTF-8', about:blank SHOULD be represented with an empty document. Other representations are not defined.</t>
+        <t>Applications resolving this URI must return an empty resource, with the media type "text/html" and the character encoding "UTF-8".</t>
       </section>
       <section anchor="examples" title="Examples">
         <t>
