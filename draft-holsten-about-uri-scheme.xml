@@ -94,9 +94,6 @@
         <t>This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult Wikipedia's entry on the "about: URI Scheme".</t>
       </section>
     </section>
-    <section title="Acknowledgements">
-      <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
-    </section>
     <section anchor="security" title="Security Considerations">
       <!-- must play nice with RFC3552 and RFC4949 -->
       <t>There is no guarantee that an application will understand any about URI provided to it. An about URI may not resolve to the expected resource. If the reference is unlikely to resolve correctly, the reference should be accompanied by an explanation or alternatives.</t>      
@@ -122,6 +119,9 @@
         <t hangText="Contact:">Joseph Holsten (joseph@josephholsten.com)</t>
         <t hangText="Author/Change controller:">Joseph Holsten</t>
         </list></t>
+    </section>
+    <section title="Acknowledgements">
+      <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
     </section>
   </middle>
   <back>
