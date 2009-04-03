@@ -88,7 +88,6 @@
           <t hangText="about:cache">Commonly provides access to information about resources stored in the browsers cache.</t>
           <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
           <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
-          <t hangText="about:internets">An easter egg supported by Google Chrome depicting the internet as a series of tubes.</t>
         </list></t>
         <t>Applications are also permitted redirect such URIs.  For example, Opera redirects all about: URIs, with the exception of about:blank, to the equivalent URI using their internal opera: scheme. e.g. about: config redirects to opera:config.</t>
         <t>This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult Wikipedia's entry on the "about: URI Scheme".</t>
