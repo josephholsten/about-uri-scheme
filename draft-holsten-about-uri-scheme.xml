@@ -78,7 +78,7 @@
           The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
         <list style="hanging">
           <t hangText="about:config">Commonly provides access to application preferences and settings</t>
-          <t hangText="about:cache">Commonly provides access to information about resources stored in the browser's cache.</t>
+          <t hangText="about:cache">Commonly provides access to information about resources stored in the browsers cache.</t>
           <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
           <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
         </list></t>
