@@ -18,7 +18,7 @@
   <front>
     <title>The 'about' URI scheme</title>
     <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
-      <organization></organization>
+      <organization />
       <address>
         <email>joseph@josephholsten.com</email>
         <uri>http://josephholsten.com</uri>
@@ -57,9 +57,9 @@
         <artwork type="abnf">
           abouturi = "about:" segment [ "?" query ] [ "#" fragment ]
         </artwork>
-        <postamble>where "segment", "query", and "fragment" are imported from <xref target="RFC3986" />. About URIs are always escaped, as per <xref target="RFC3986" />.</postamble>
+        <postamble>where "segment", "query", and "fragment" are imported from <xref target="RFC3986" />.</postamble>
       </figure>
-      <t>In the interests of tractability to humans, about URIs should not be minted with percent-encoded parts.  However, the about URI syntax does allow percent-encoded characters in the "pchar" elements defined in <xref target="RFC3986" />.</t>
+      <t>In the interests of tractability to humans, about URIs SHOULD NOT be minted with percent-encoded parts.  However, the about URI syntax does allow percent-encoded characters in the "pchar" elements defined in <xref target="RFC3986" />.</t>
       <t>No relative URI syntax is defined.</t>
     </section>
     <section title="Resolving About URIs">
