@@ -121,10 +121,6 @@
       &RFC3986; <!-- URI Generic Syntax -->
       &RFC5234; <!-- ABNF -->
       &RFC2119; <!-- RFC Key Words -->
-    </references>
-    
-    <references  title="Informative References">
-      &RFC4395; <!-- New URI Schemes -->
       <reference anchor='W3C.WD-html5' target='http://www.w3.org/TR/html5'>
         <front>
           <title>HTML 5</title>
@@ -139,6 +135,10 @@
         <seriesInfo name='World Wide Web Consortium TR' value='html5' />
         <format type='HTML' target='http://www.w3.org/TR/html5' />
       </reference>
+    </references>
+    
+    <references  title="Informative References">
+      &RFC4395; <!-- New URI Schemes -->
       <reference anchor='wikiabout'>
         <front>
           <title>About: URI scheme</title>
