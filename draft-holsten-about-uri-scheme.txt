@@ -4,8 +4,8 @@
 Network Working Group                                         J. Holsten
 Internet-Draft
 Intended status: Informational                                   L. Hunt
-Expires: July 31, 2009                              Opera Software, ASA.
-                                                        January 27, 2009
+Expires: July 5, 2009                               Opera Software, ASA.
+                                                            January 2009
 
 
                          The 'about' URI scheme
@@ -32,7 +32,7 @@ Status of This Memo
    The list of Internet-Draft Shadow Directories can be accessed at
    http://www.ietf.org/shadow.html.
 
-   This Internet-Draft will expire on July 31, 2009.
+   This Internet-Draft will expire on July 5, 2009.
 
 Copyright Notice
 
@@ -52,7 +52,7 @@ Abstract
 
 
 
-Holsten & Hunt            Expires July 31, 2009                 [Page 1]
+Holsten & Hunt            Expires July 5, 2009                  [Page 1]
 
 Internet-Draft           The 'about' URI scheme             January 2009
 
@@ -91,9 +91,8 @@ Internet-Draft           The 'about' URI scheme             January 2009
              abouturi = "about:" segment [ "?" query ] [ "#" fragment ]
 
    where "segment", "query", and "fragment" are imported from [RFC3986].
-   About URIs are always escaped, as per [RFC3986].
 
-   In the interests of tractability to humans, about URIs should not be
+   In the interests of tractability to humans, about URIs SHOULD NOT be
    minted with percent-encoded parts.  However, the about URI syntax
    does allow percent-encoded characters in the "pchar" elements defined
    in [RFC3986].
@@ -108,7 +107,8 @@ Internet-Draft           The 'about' URI scheme             January 2009
 
 
 
-Holsten & Hunt            Expires July 31, 2009                 [Page 2]
+
+Holsten & Hunt            Expires July 5, 2009                  [Page 2]
 
 Internet-Draft           The 'about' URI scheme             January 2009
 
@@ -149,9 +149,6 @@ Internet-Draft           The 'about' URI scheme             January 2009
    about:mozilla  An easter egg supported by Mozilla showing a passage
       from the fictional Book of Mozilla
 
-   about:internets  An easter egg supported by Google Chrome depicting
-      the internet as a series of tubes.
-
    Applications are also permitted redirect such URIs.  For example,
    Opera redirects all about: URIs, with the exception of about:blank,
    to the equivalent URI using their internal opera: scheme. e.g. about:
@@ -159,40 +156,38 @@ Internet-Draft           The 'about' URI scheme             January 2009
 
    This is not an exhaustive list.  Many more are supported by numerous
    applications.  For more examples, consult Wikipedia's entry on the
-   "about: URI Scheme".
+   "about: URI Scheme" [wikiabout].
 
 
 
 
-Holsten & Hunt            Expires July 31, 2009                 [Page 3]
+
+
+
+Holsten & Hunt            Expires July 5, 2009                  [Page 3]
 
 Internet-Draft           The 'about' URI scheme             January 2009
 
 
 5.  Security Considerations
 
-   There is no guarantee that an application will understand any about
-   URI provided to it.  An about URI may not resolve to the expected
-   resource.  If the reference is unlikely to resolve correctly, the
-   reference should be accompanied by an explanation or alternatives.
-
-   Some applications are known to display arbitrary HTML following the
-   scheme.  Applications should be cautious when accessing an about URI.
-   An application should not execute or display information in an about
-   URI.  About URIs should not cause the application to modify any data.
-   Applications should not use about URIs to access, or erase files or
+   About URIs SHOULD NOT cause the application to modify any data.
+   Applications SHOULD NOT use about URIs to access or erase files or
    other sensitive information.
 
    About URIs may identify resources which show sensitive information.
-   This data SHOULD NOT be exposed in about URIs.
+   Applications SHOULD ensure appropriate restrictions are in place to
+   protect such information from access or modification by untrusted
+   sources.
 
-   "The origin of the about:blank Document is set when the Document is
-   created.  If the new browsing context has a creator browsing context,
-   then the origin of the about:blank Document is the origin of the
-   creator Document.  Otherwise, the origin of the about:blank Document
-   is a globally unique identifier assigned when the new browsing
-   context is created."
-   http://www.whatwg.org/specs/web-apps/current-work/#origin
+   The origin and the effective script origin of a resource identified
+   by an about URI MUST be determined as defined by HTML5 Section 5.4
+   Origin [W3C.WD-html5-20090212].  The origin of the about:blank
+   Document is set when the Document is created.  If the new browsing
+   context has a creator browsing context, then the origin of the about:
+   blank Document is the origin of the creator Document.  Otherwise, the
+   origin of the about:blank Document is a globally unique identifier
+   assigned when the new browsing context is created.
 
 6.  IANA Considerations
 
@@ -217,18 +212,18 @@ Internet-Draft           The 'about' URI scheme             January 2009
       applications that use URIs as identifiers for private resources,
       such as web browsers.
 
+   Interoperability considerations:  Applications are only required to
+      support about:blank, and may choose to interpret other about URIs
+      differently.
 
 
 
-Holsten & Hunt            Expires July 31, 2009                 [Page 4]
+
+
+Holsten & Hunt            Expires July 5, 2009                  [Page 4]
 
 Internet-Draft           The 'about' URI scheme             January 2009
 
-
-   Interoperability considerations:  Applications are only required to
-      support about:blank, and may choose to interpret other about URIs
-      differently.  Other about URIs should only be expected to work
-      correctly within the same application.
 
    Security considerations:  See Section 5
 
@@ -247,21 +242,44 @@ Internet-Draft           The 'about' URI scheme             January 2009
 
 8.1.  Normative References
 
-   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
-              Resource Identifier (URI): Generic Syntax", STD 66,
-              RFC 3986, January 2005.
+   [RFC3986]                Berners-Lee, T., Fielding, R., and L.
+                            Masinter, "Uniform Resource Identifier
+                            (URI): Generic Syntax", STD 66, RFC 3986,
+                            January 2005.
 
-   [RFC5234]  Crocker, D. and P. Overell, "Augmented BNF for Syntax
-              Specifications: ABNF", STD 68, RFC 5234, January 2008.
+   [RFC5234]                Crocker, D. and P. Overell, "Augmented BNF
+                            for Syntax Specifications: ABNF", STD 68,
+                            RFC 5234, January 2008.
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, March 1997.
+   [RFC2119]                Bradner, S., "Key words for use in RFCs to
+                            Indicate Requirement Levels", BCP 14,
+                            RFC 2119, March 1997.
 
 8.2.  Informative References
 
-   [RFC4395]  Hansen, T., Hardie, T., and L. Masinter, "Guidelines and
-              Registration Procedures for New URI Schemes", BCP 115,
-              RFC 4395, February 2006.
+   [RFC4395]                Hansen, T., Hardie, T., and L. Masinter,
+                            "Guidelines and Registration Procedures for
+                            New URI Schemes", BCP 35, RFC 4395,
+                            February 2006.
+
+   [W3C.WD-html5-20090212]  Hickson, I. and D. Hyatt, "HTML 5", World
+                            Wide Web Consortium WD WD-html5-20090212,
+                            February 2009, <http://www.w3.org/TR/2009/
+                            WD-html5-20090212>.
+
+   [wikiabout]              Wikipedia, The Free Encyclopedia, "About:
+                            URI scheme", March 2009.
+
+
+
+
+
+
+
+Holsten & Hunt            Expires July 5, 2009                  [Page 5]
+
+Internet-Draft           The 'about' URI scheme             January 2009
+
 
 Authors' Addresses
 
@@ -269,16 +287,6 @@ Authors' Addresses
 
    EMail: joseph@josephholsten.com
    URI:   http://josephholsten.com
-
-
-
-
-
-
-
-Holsten & Hunt            Expires July 31, 2009                 [Page 5]
-
-Internet-Draft           The 'about' URI scheme             January 2009
 
 
    Lachlan Hunt
@@ -324,13 +332,5 @@ Internet-Draft           The 'about' URI scheme             January 2009
 
 
 
-
-
-
-
-
-
-
-
-Holsten & Hunt            Expires July 31, 2009                 [Page 6]
+Holsten & Hunt            Expires July 5, 2009                  [Page 6]
 
