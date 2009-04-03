@@ -148,7 +148,7 @@ Internet-Draft           The 'about' URI scheme             January 2009
    about:mozilla  An easter egg supported by Mozilla showing a passage
       from the fictional Book of Mozilla
 
-   Applications are also permitted redirect such URIs.  For example,
+   Applications are also permitted to redirect such URIs.  For example,
    Opera redirects all about: URIs, with the exception of about:blank,
    to the equivalent URI using their internal opera: scheme. e.g. about:
    config redirects to opera:config.

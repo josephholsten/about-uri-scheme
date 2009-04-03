@@ -82,7 +82,7 @@
           <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
           <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
         </list></t>
-        <t>Applications are also permitted redirect such URIs.  For example, Opera redirects all about: URIs, with the exception of about:blank, to the equivalent URI using their internal opera: scheme. e.g. about: config redirects to opera:config.</t>
+        <t>Applications are also permitted to redirect such URIs.  For example, Opera redirects all about: URIs, with the exception of about:blank, to the equivalent URI using their internal opera: scheme. e.g. about: config redirects to opera:config.</t>
         <t>This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
       </section>
     </section>
