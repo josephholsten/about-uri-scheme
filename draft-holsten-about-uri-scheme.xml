@@ -113,7 +113,7 @@
         <t hangText="Encoding considerations:">Percent-encoding is allowed in 'segment' components (see <xref target="syntax" />)</t>
         <t hangText="Intended usage:">See <xref target="intro" /></t>
         <t hangText="Applications and/or protocols that use this URI scheme name:">Any applications that use URIs as identifiers for private resources, such as web browsers.</t>
-        <t hangText="Interoperability considerations:">Applications are only required to support about:blank, and may choose to interpret other about URIs differently. Other about URIs should only be expected to work correctly within the same application.</t>
+        <t hangText="Interoperability considerations:">Applications are only required to support about:blank, and may choose to interpret other about URIs differently.</t>
         <t hangText="Security considerations:">See <xref target="security" /></t>
         <t hangText="Relevant publications:">None</t>
         <t hangText="Contact:">Joseph Holsten (joseph@josephholsten.com)</t>
