@@ -13,7 +13,7 @@
 <?rfc rfcedstyle='yes' ?>
 <?rfc symrefs='yes'?>
 
-<rfc category="info" ipr="trust200811" docName="draft-holsten-about-uri-scheme-00">
+<rfc category="info" ipr="trust200902" docName="draft-holsten-about-uri-scheme-00">
   <front>
     <title>The 'about' URI scheme</title>
     <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
