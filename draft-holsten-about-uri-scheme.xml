@@ -5,7 +5,6 @@
   <!ENTITY RFC3986 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3986.xml">
   <!ENTITY RFC4395 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4395.xml">
   <!ENTITY RFC4949 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4949.xml">
-  <!ENTITY HTML5 SYSTEM "http://xml.resource.org/public/rfc/bibxml4/reference.W3C.WD-html5-20090212.xml">
 ]>
 <!-- <?rfc comments='yes'?> -->
 <!-- <?rfc inline='yes' ?> -->
@@ -98,7 +97,7 @@
       <!-- must play nice with RFC3552 and RFC4949 -->
       <t>About URIs SHOULD NOT cause the application to modify any data. Applications SHOULD NOT use about URIs to access or erase files or other sensitive information.</t>
       <t>About URIs may identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
-      <t>The origin and the effective script origin of a resource identified by an about URI MUST be determined as defined by <xref target="W3C.WD-html5-20090212">HTML5 Section 5.4 Origin</xref>. The origin of the about:blank Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the about:blank Document is the origin of the creator Document. Otherwise, the origin of the about:blank Document is a globally unique identifier assigned when the new browsing context is created.</t>
+      <t>About URIs which use HTML representations MUST use the origin and the effective script origin as defined by <xref target="W3C.WD-html5">HTML5 Section 5.4 Origin</xref>. The origin of the about:blank Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the about:blank Document is the origin of the creator Document. Otherwise, the origin of the about:blank Document is a globally unique identifier assigned when the new browsing context is created.</t>
     </section>
     <section title="IANA Considerations">
       <!-- must play nice with RFC2434, RFC4395 -->
@@ -133,7 +132,20 @@
     
     <references  title="Informative References">
       &RFC4395; <!-- New URI Schemes -->
-      &HTML5; <!-- HTML5 (W3C.WD-html5-20090212) -->
+      <reference anchor='W3C.WD-html5' target='http://www.w3.org/TR/html5'>
+        <front>
+          <title>HTML 5</title>
+          <author initials='I.' surname='Hickson' fullname='Ian Hickson'>
+              <organization />
+          </author>
+          <author initials='D.' surname='Hyatt' fullname='David Hyatt'>
+              <organization />
+          </author>
+          <date month='February' day='12' year='2009' />
+        </front>
+        <seriesInfo name='World Wide Web Consortium TR' value='html5' />
+        <format type='HTML' target='http://www.w3.org/TR/html5' />
+      </reference>
       <reference anchor='wikiabout'>
         <front>
           <title>About: URI scheme</title>
