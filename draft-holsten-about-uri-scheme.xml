@@ -90,7 +90,7 @@
           <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
         </list></t>
         <t>Applications are also permitted redirect such URIs.  For example, Opera redirects all about: URIs, with the exception of about:blank, to the equivalent URI using their internal opera: scheme. e.g. about: config redirects to opera:config.</t>
-        <t>This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult Wikipedia's entry on the "about: URI Scheme".</t>
+        <t>This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
       </section>
     </section>
     <section anchor="security" title="Security Considerations">
@@ -133,6 +133,17 @@
     
     <references  title="Informative References">
       &RFC4395; <!-- New URI Schemes -->
+			<reference anchor='wikiabout'>
+        <front>
+          <title>About: URI scheme</title>
+          <author fullname='Wikipedia contributors'>
+            <organization>Wikipedia, The Free Encyclopedia</organization>
+          </author>
+          <date month='March' year='2009' day="18" />
+        </front>
+        <format type='TXT'
+                target='http://en.wikipedia.org/w/index.php?title=About:_URI_scheme&oldid=278165554' />
+	    </reference>
     </references>
   </back>
 </rfc>
