@@ -96,9 +96,9 @@
     </section>
     <section anchor="security" title="Security Considerations">
       <!-- must play nice with RFC3552 and RFC4949 -->
-      <t>Some applications are known to display arbitrary HTML following the scheme.<cref source="JH">see application program in RFC4949</cref> Applications should be cautious when accessing an about URI. An application should not execute or display information in an about URI.<cref source="JH">see active content in RFC4949</cref> About URIs should not cause the application to modify any data. Applications should not use about URIs to access, or erase files or other sensitive information.</t>
-      <t>About URIs may identify resources which show sensitive information. This data SHOULD NOT be exposed in about URIs.<cref anchor="NOTE-5" source="JH">convert to use meanings from RFC2119.</cref></t>
-      <t>"The origin of the about:blank Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the about:blank Document is the origin of the creator Document. Otherwise, the origin of the about:blank Document is a globally unique identifier assigned when the new browsing context is created." <xref target="W3C.WD-html5-20090212">HTML5 Section 5.4 Origin</xref></t>
+      <t>About URIs SHOULD NOT cause the application to modify any data. Applications SHOULD NOT use about URIs to access or erase files or other sensitive information.</t>
+      <t>About URIs may identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
+      <t>The origin and the effective script origin of a resource identified by an about URI MUST be determined as defined by <xref target="W3C.WD-html5-20090212">HTML5 Section 5.4 Origin</xref>. The origin of the about:blank Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the about:blank Document is the origin of the creator Document. Otherwise, the origin of the about:blank Document is a globally unique identifier assigned when the new browsing context is created.</t>
     </section>
     <section title="IANA Considerations">
       <!-- must play nice with RFC2434, RFC4395 -->
