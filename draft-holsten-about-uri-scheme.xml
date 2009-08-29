@@ -13,7 +13,7 @@
 <?rfc rfcedstyle='yes' ?>
 <?rfc symrefs='yes'?>
 
-<rfc category="info" ipr="trust200902" docName="draft-holsten-about-uri-scheme-00">
+<rfc category="info" ipr="trust200902" docName="draft-holsten-about-uri-scheme-01">
   <front>
     <title>The 'about' URI scheme</title>
     <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
@@ -30,7 +30,7 @@
         <uri>http://lachy.id.au/</uri>
       </address>
     </author>
-    <date month="January" year="2009" />
+    <date day="8" month="May" year="2009" />
     <area>Internet</area>
     <keyword>I-D</keyword>
     <keyword>Internet-Draft</keyword>
