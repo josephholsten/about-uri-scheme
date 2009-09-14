@@ -9,17 +9,16 @@
     <!ENTITY RFC4949 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4949.xml">
     <!ENTITY RFC3629 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3629.xml">
 ]>
-<!-- <?rfc comments="yes"?> -->
-<!-- <?rfc inline="yes" ?> -->
-<!-- <?rfc editing="yes" ?> -->
-<?rfc strict="yes" ?>
-<?rfc rfcedstyle="yes" ?>
-<?rfc symrefs="yes" ?>
-<?rfc iprnotified="yes" ?>
-<?rfc compact="yes" ?>
-<?rfc inline="yes" ?>
-<?rfc tocdepth="3" ?>
 
+<!--<?xml-stylesheet type='text/xsl' href='tools/rfc2629.xslt'/ ?>-->
+
+<?rfc comments="yes"?>
+<!-- <?rfc editing="yes" ?> -->
+<?rfc inline="yes" ?>
+<?rfc iprnotified="yes" ?>
+<?rfc rfcedstyle="yes" ?>
+<?rfc sortrefs="yes"?>
+<?rfc strict="yes" ?>
 
 <!--
  1. Update the docName
@@ -28,7 +27,7 @@
 -->
 
 
-<rfc category="info" ipr="trust200902" docName="draft-holsten-about-uri-scheme-02">
+<rfc category="std" ipr="trust200902" docName="draft-holsten-about-uri-scheme-03">
     <front>
         <title>The 'about' URI scheme</title>
         <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
@@ -45,7 +44,7 @@
                 <uri>http://lachy.id.au/</uri>
             </address>
         </author>
-        <date day="12" month="August" year="2009" />
+        <date month="August" year="2009" />
         <area>Internet</area>
         <keyword>I-D</keyword>
         <keyword>Internet-Draft</keyword>
@@ -55,11 +54,11 @@
         <abstract>
             <t>This document specifies the URI (Uniform Resource Identifier) scheme <spanx style="verb">about</spanx>. About URIs are designed to be an internal, application-level identifier.  Unlike many other URI schemes, the resolution of, and resources represented by, about URIs are left largely to each individual application. Only the <spanx style="verb">about:blank</spanx> URI must be the same.</t>
         </abstract>
+        <note title="Editorial Note (To be removed by RFC Editor)">
+          <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
+        </note>
     </front>
     <middle>
-        <section title="Editorial Note (To be removed by RFC Editor)">
-            <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
-        </section>
         <section anchor="intro" title="Introduction">
             <t>An about URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".</t>
             <t>While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The <xref target="blank">about:blank</xref> URI is ubiquitous, and some browsers also provide other resources with the about scheme, including those in <xref target="examples" />.</t>
@@ -102,13 +101,12 @@
             <t>About URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of about URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each may represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
         </section>
         <section title="Relative About URIs">
-            <t>As about URIs do not use a hierarchical path, relative about URIs are not permitted</t>
+            <t>As about URIs do not use a hierarchical path, relative about URIs are not permitted.</t>
         </section>
         <section anchor="security" title="Security Considerations">
             <!-- must play nice with RFC3552 and RFC4949 -->
             <t>Implementations of the scheme SHOULD NOT modify data when processing about resource identifiers. Applications SHOULD NOT use about URIs to access or erase files or other sensitive information.</t>
             <t>About URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
-            <t>The HTML representation of the URI <spanx style="verb">about:blank</spanx> MUST use the origin and the effective script origin as defined by <xref target="W3C.WD-html5">HTML5 Section 5.4 Origin</xref>. The origin of the <spanx style="verb">about:blank</spanx> Document is set when the Document is created. If the new browsing context has a creator browsing context, then the origin of the <spanx style="verb">about:blank</spanx> Document is the origin of the creator Document. Otherwise, the origin of the <spanx style="verb">about:blank</spanx> Document is a globally unique identifier assigned when the new browsing context is created.<cref anchor="NOTE-5" source="JH">Should this origin policy apply to all HTML representations?</cref></t>
         </section>
         <section title="IANA Considerations">
             <!-- must play nice with RFC2434, RFC4395 -->
@@ -129,7 +127,7 @@
             </list></t>
         </section>
         <section title="Acknowledgements">
-            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson and Larry Masinter.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
+            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter and Bjoern Hoehrmann.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
         </section>
     </middle>
     <back>
@@ -148,20 +146,6 @@
                     <date month="December" year="2003"/>
                 </front>
                 <seriesInfo name="ISO/IEC" value="Standard 10646"/>
-            </reference>
-            <reference anchor='W3C.WD-html5' target='http://www.w3.org/TR/html5'>
-                <front>
-                    <title>HTML 5</title>
-                    <author initials='I.' surname='Hickson' fullname='Ian Hickson'>
-                        <organization />
-                    </author>
-                    <author initials='D.' surname='Hyatt' fullname='David Hyatt'>
-                        <organization />
-                    </author>
-                    <date month='February' day='12' year='2009' />
-                </front>
-                <seriesInfo name='World Wide Web Consortium TR' value='html5' />
-                <format type='HTML' target='http://www.w3.org/TR/html5' />
             </reference>
         </references>   
         <references  title="Informative References">
