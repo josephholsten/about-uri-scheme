@@ -47,8 +47,8 @@ Copyright Notice
 
 Abstract
 
-   This document specifies the URI (Uniform Resource Identifier) scheme
-   "about".  About URIs are designed to be an internal, application-
+   A URI using the "about:" scheme, henceforth refered to as an "about"
+   URI, is designed to be used internally by applications for almost any
 
 
 
@@ -57,9 +57,7 @@ Holsten & Hunt          Expires February 2, 2010                [Page 1]
 Internet-Draft           The 'about' URI scheme              August 2009
 
 
-   level identifier.  Unlike many other URI schemes, the resolution of,
-   and resources represented by, about URIs are left largely to each
-   individual application.  Only the "about:blank" URI must be the same.
+   desired purpose.
 
 Editorial Note (To be removed by RFC Editor)
 
@@ -68,7 +66,7 @@ Editorial Note (To be removed by RFC Editor)
 
 1.  Introduction
 
-   An about URI is designed to be used internally by applications for
+   An "about" URI is designed to be used internally by applications for
    almost any desired purpose.  Such URIs have commonly been used by web
    browsers for providing access to built-in functionality, such as
    application information, preferences, settings, or "easter eggs".
@@ -79,7 +77,7 @@ Editorial Note (To be removed by RFC Editor)
 
 2.  URI Syntax
 
-   The general syntax of an about URI is defined below using ABNF
+   The general syntax of an "about" URI is defined below using ABNF
    [RFC5234]:
 
                    abouturi = "about:" segment [ "?" query ]
@@ -96,15 +94,17 @@ Editorial Note (To be removed by RFC Editor)
    characters in the unreserved set should be percent-encoded.
 
    By using UTF-8 encoding, there are no known compatibility issues with
-   mapping Internationlized Resource Identifiers to about URIs according
-   to [RFC3987].  Since about URIs do not use domain names, "ireg-name"
-   conversion is unnecessary.
+   mapping Internationlized Resource Identifiers to "about" URIs
+   according to [RFC3987].  Since "about" URIs do not use domain names,
+   "ireg-name" conversion is unnecessary.
 
-4.  Resolving About URIs
+4.  Resolving "about" URIs
 
-   In general, applications are free to resolve any about URI to any
+   In general, applications are free to resolve any "about" URI to any
    resource, either internal or external, or redirect to an alternative
-   URI, with about:blank being the only exception.
+   URI, with "about:blank" being the only exception.
+
+   As "about" URIs are designed to be internal to each application,
 
 
 
@@ -113,17 +113,16 @@ Holsten & Hunt          Expires February 2, 2010                [Page 2]
 Internet-Draft           The 'about' URI scheme              August 2009
 
 
-   As about URIs are designed to be internal to each application, there
-   is no expectation of any URI, except about:blank, returning the same
-   resource among different applications.  However, it is worth noting
-   that some conventions have arisen for providing particular
-   functionality via common about URIs.
+   there is no expectation of any URI, except "about:blank", returning
+   the same resource among different applications.  However, it is worth
+   noting that some conventions have arisen for providing particular
+   functionality via common "about" URIs.
 
-   Because about URIs identify application specific information,
+   Because "about" URIs identify application specific information,
    applications SHOULD NOT retrieve remote information for such a
    resource.
 
-   The about:blank URI is the only about URI reserved by this
+   The "about:blank" URI is the only "about" URI reserved by this
    specification.
 
 4.1.  about:blank
@@ -150,17 +149,18 @@ Internet-Draft           The 'about' URI scheme              August 2009
       from the fictional Book of Mozilla
 
    Applications are also permitted to redirect such URIs.  For example,
-   Opera redirects all about URIs, with the exception of "about:blank",
-   to the equivalent URI using their internal opera: scheme. e.g.
-   "about:config" redirects to "opera:config".
+   Opera redirects all "about" URIs, with the exception of
+   "about:blank", to the equivalent URI using their internal "opera:"
+   scheme. e.g. "about:config" redirects to "opera:config".
 
    This is not an exhaustive list.  Many more are supported by numerous
    applications.  For more examples, consult Wikipedia's entry on the
    "about: URI Scheme" [wikiabout].
 
+5.  Normalization
 
-
-
+   "about" URIs use the standard URI normalization rules [RFC3986],
+   specifically Simple String Comparison, Case Normalization, and
 
 
 
@@ -169,41 +169,37 @@ Holsten & Hunt          Expires February 2, 2010                [Page 3]
 Internet-Draft           The 'about' URI scheme              August 2009
 
 
-5.  Normalization
-
-   About URIs use the standard URI normalization rules [RFC3986],
-   specifically Simple String Comparison, Case Normalization, and
    Percent-Encoding Normalization.  For example, "about:blank",
    "about:blan%6B" and "about:blan%6b" are equivalent, though the
-   percent-encoded forms are discouraged.  Due to the structure of about
-   URIs, some normalizations do not apply, specifically Syntax-Based
-   Normalization, Scheme-Based Normalization, and Protocol-Based
+   percent-encoded forms are discouraged.  Due to the structure of
+   "about" URIs, some normalizations do not apply, specifically Syntax-
+   Based Normalization, Scheme-Based Normalization, and Protocol-Based
    Normalization.  For example, "about:blank" is not equivalent to
    "about:BLANK", "about:blank?" or "about:blank:", each may represent a
    different resource.  Similarly, "about:blank%3F" is not equivalent to
    "about:blank?".
 
-6.  Relative About URIs
+6.  Relative "about" URIs
 
-   As about URIs do not use a hierarchical path, relative about URIs are
-   not permitted.
+   As "about" URIs do not use a hierarchical path, relative "about" URIs
+   are not permitted.
 
 7.  Security Considerations
 
    Implementations of the scheme SHOULD NOT modify data when processing
-   about resource identifiers.  Applications SHOULD NOT use about URIs
-   to access or erase files or other sensitive information.
+   "about" resource identifiers.  Applications SHOULD NOT use "about"
+   URIs to access or erase files or other sensitive information.
 
-   About URIs MAY identify resources which show sensitive information.
+   "about" URIs MAY identify resources which show sensitive information.
    Applications SHOULD ensure appropriate restrictions are in place to
    protect such information from access or modification by untrusted
    sources.
 
 8.  IANA Considerations
 
-   This specification requests the IANA provisionally register the about
-   URI scheme as specified in this document and summarized in the
-   following template, per [RFC4395]:
+   This specification requests the IANA provisionally register the
+   "about" URI scheme as specified in this document and summarized in
+   the following template, per [RFC4395]:
 
    URI scheme name:  about
 
@@ -217,6 +213,10 @@ Internet-Draft           The 'about' URI scheme              August 2009
       and "query" components.  Internationalization is handled by IRI
       processing.  See Section 3.
 
+   Intended usage:  See Section 1
+
+
+
 
 
 
@@ -225,15 +225,13 @@ Holsten & Hunt          Expires February 2, 2010                [Page 4]
 Internet-Draft           The 'about' URI scheme              August 2009
 
 
-   Intended usage:  See Section 1
-
    Applications and/or protocols that use this URI scheme name:  Any
       applications that use URIs as identifiers for private resources,
       such as web browsers.
 
    Interoperability considerations:  Applications are only required to
-      support about:blank, and may choose to interpret other about URIs
-      differently.
+      support "about:blank", and may choose to interpret other "about"
+      URIs differently.
 
    Security considerations:  See Section 7
 
@@ -273,6 +271,8 @@ Internet-Draft           The 'about' URI scheme              August 2009
                 "Information Technology - Universal Multiple-Octet Coded
                 Character Set (UCS)", ISO/IEC Standard 10646,
                 December 2003.
+
+
 
 
 

@@ -52,7 +52,7 @@
         <keyword>Uniform Resource Identifier</keyword>
         <keyword>about</keyword>
         <abstract>
-            <t>This document specifies the URI (Uniform Resource Identifier) scheme <spanx style="verb">about</spanx>. About URIs are designed to be an internal, application-level identifier.  Unlike many other URI schemes, the resolution of, and resources represented by, about URIs are left largely to each individual application. Only the <spanx style="verb">about:blank</spanx> URI must be the same.</t>
+            <t>A URI using the <spanx style="verb">about:</spanx> scheme, henceforth refered to as an <spanx style="verb">about</spanx> URI, is designed to be used internally by applications for almost any desired purpose.</t>
         </abstract>
         <note title="Editorial Note (To be removed by RFC Editor)">
           <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
@@ -60,12 +60,12 @@
     </front>
     <middle>
         <section anchor="intro" title="Introduction">
-            <t>An about URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".</t>
+            <t>An <spanx style="verb">about</spanx> URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".</t>
             <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",    "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119" />.</t>
         </section>
     <section anchor="syntax" title="URI Syntax">
         <figure>
-            <preamble>The general syntax of an about URI is defined below using <xref target="RFC5234">ABNF</xref>:</preamble>
+            <preamble>The general syntax of an <spanx style="verb">about</spanx> URI is defined below using <xref target="RFC5234">ABNF</xref>:</preamble>
             <artwork type="abnf">
                 abouturi = "about:" segment [ "?" query ]
             </artwork>
@@ -74,13 +74,13 @@
     </section>
     <section anchor="encoding" title="Encoding Considerations">
         <t>Because many characters are not permitted with this syntax, the <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> elements may contain characters from the <xref target="UCS">Unicode Character Set</xref> as suggested by <xref target="RFC3986">URI</xref>, by first encoding those characters as octets to the <xref target="RFC3629">UTF-8 character encoding</xref>; then only those octets that do not correspond to characters in the unreserved set should be percent-encoded.</t>
-        <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to about URIs according to <xref target="RFC3987"/>. Since about URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
+        <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
     </section>
-    <section title="Resolving About URIs">
-        <t>In general, applications are free to resolve any about URI to any resource, either internal or external, or redirect to an alternative URI, with <xref target="blank" format="title" /> being the only exception.</t>
-        <t>As about URIs are designed to be internal to each application, there is no expectation of any URI, except <xref target="blank" format="title" />, returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common about URIs.</t>
-        <t>Because about URIs identify application specific information, applications SHOULD NOT retrieve remote information for such a resource.</t>
-        <t>The <xref target="blank" format="title" /> URI is the only about URI reserved by this specification.</t>
+    <section title="Resolving &quot;about&quot; URIs">
+        <t>In general, applications are free to resolve any <spanx style="verb">about</spanx> URI to any resource, either internal or external, or redirect to an alternative URI, with "<xref target="blank" format="title" />" being the only exception.</t>
+        <t>As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any URI, except "<xref target="blank" format="title" />", returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
+        <t>Because <spanx style="verb">about</spanx> URIs identify application specific information, applications SHOULD NOT retrieve remote information for such a resource.</t>
+        <t>The "<xref target="blank" format="title" />" URI is the only <spanx style="verb">about</spanx> URI reserved by this specification.</t>
         <section anchor="blank" title="about:blank">
             <t>Applications resolving this URI MUST return an empty resource, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
         </section>
@@ -92,24 +92,24 @@
                     <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
                     <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
                 </list></t>
-            <t>Applications are also permitted to redirect such URIs. For example, Opera redirects all about URIs, with the exception of <spanx style="verb">about:blank</spanx>, to the equivalent URI using their internal opera: scheme. e.g. <spanx style="verb">about:config</spanx> redirects to <spanx style="verb">opera:config</spanx>.</t>
+            <t>Applications are also permitted to redirect such URIs. For example, Opera redirects all <spanx style="verb">about</spanx> URIs, with the exception of <spanx style="verb">about:blank</spanx>, to the equivalent URI using their internal <spanx style="verb">opera:</spanx> scheme. e.g. <spanx style="verb">about:config</spanx> redirects to <spanx style="verb">opera:config</spanx>.</t>
             <t>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
         </section>
         </section>
         <section title="Normalization">
-            <t>About URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of about URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each may represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
+            <t><spanx style="verb">about</spanx> URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of <spanx style="verb">about</spanx> URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each may represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
         </section>
-        <section title="Relative About URIs">
-            <t>As about URIs do not use a hierarchical path, relative about URIs are not permitted.</t>
+        <section title="Relative &quot;about&quot; URIs">
+            <t>As <spanx style="verb">about</spanx> URIs do not use a hierarchical path, relative <spanx style="verb">about</spanx> URIs are not permitted.</t>
         </section>
         <section anchor="security" title="Security Considerations">
             <!-- must play nice with RFC3552 and RFC4949 -->
-            <t>Implementations of the scheme SHOULD NOT modify data when processing about resource identifiers. Applications SHOULD NOT use about URIs to access or erase files or other sensitive information.</t>
-            <t>About URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
+            <t>Implementations of the scheme SHOULD NOT modify data when processing <spanx style="verb">about</spanx> resource identifiers. Applications SHOULD NOT use <spanx style="verb">about</spanx> URIs to access or erase files or other sensitive information.</t>
+            <t><spanx style="verb">about</spanx> URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
         </section>
         <section title="IANA Considerations">
             <!-- must play nice with RFC2434, RFC4395 -->
-            <t>This specification requests the IANA provisionally register the about URI scheme as specified in this document and summarized in the following template, per <xref target="RFC4395" />:</t>
+            <t>This specification requests the IANA provisionally register the <spanx style="verb">about</spanx> URI scheme as specified in this document and summarized in the following template, per <xref target="RFC4395" />:</t>
             <t><list style="hanging">
                 <t hangText="URI scheme name:">about</t>
                 <t hangText="Status:">Provisional</t>
@@ -118,7 +118,7 @@
                 <t hangText="Encoding considerations:">Percent-encoding is allowed in <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> components. Internationalization is handled by IRI processing. See <xref target="encoding" />.</t>
                 <t hangText="Intended usage:">See <xref target="intro" /></t>
                 <t hangText="Applications and/or protocols that use this URI scheme name:">Any applications that use URIs as identifiers for private resources, such as web browsers.</t>
-                <t hangText="Interoperability considerations:">Applications are only required to support about:blank, and may choose to interpret other about URIs differently.</t>
+                <t hangText="Interoperability considerations:">Applications are only required to support <spanx style="verb">about:blank</spanx>, and may choose to interpret other <spanx style="verb">about</spanx> URIs differently.</t>
                 <t hangText="Security considerations:">See <xref target="security" /></t>
                 <t hangText="Relevant publications:">None</t>
                 <t hangText="Contact:">Joseph Holsten (joseph@josephholsten.com)</t>

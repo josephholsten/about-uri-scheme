@@ -185,7 +185,7 @@ rights and restrictions with respect to this document.</p>
 
 <h3>Abstract</h3>
 
-<p>This document specifies the URI (Uniform Resource Identifier) scheme <tt>about</tt>. About URIs are designed to be an internal, application-level identifier.  Unlike many other URI schemes, the resolution of, and resources represented by, about URIs are left largely to each individual application. Only the <tt>about:blank</tt> URI must be the same.
+<p>A URI using the <tt>about:</tt> scheme, henceforth refered to as an <tt>about</tt> URI, is designed to be used internally by applications for almost any desired purpose.
 </p>
 <h3>Editorial Note (To be removed by RFC Editor)</h3>
 
@@ -195,7 +195,7 @@ rights and restrictions with respect to this document.</p>
 <a name="rfc.section.1"></a><h3>1.&nbsp;
 Introduction</h3>
 
-<p>An about URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".
+<p>An <tt>about</tt> URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".
 </p>
 <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",    "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
 </p>
@@ -203,7 +203,7 @@ Introduction</h3>
 <a name="rfc.section.2"></a><h3>2.&nbsp;
 URI Syntax</h3>
 
-<p>The general syntax of an about URI is defined below using <a class='info' href='#RFC5234'>ABNF<span> (</span><span class='info'>Crocker, D. and P. Overell, &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; January&nbsp;2008.</span><span>)</span></a> [RFC5234]:
+<p>The general syntax of an <tt>about</tt> URI is defined below using <a class='info' href='#RFC5234'>ABNF<span> (</span><span class='info'>Crocker, D. and P. Overell, &ldquo;Augmented BNF for Syntax Specifications: ABNF,&rdquo; January&nbsp;2008.</span><span>)</span></a> [RFC5234]:
 </p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
                 <dfn>abouturi</dfn> = "<span class='str'>about:</span>" <cite class='id'>segment</cite> [ "<span class='str'>?</span>" <cite class='id'>query</cite> ]
 </pre></div>
@@ -215,19 +215,19 @@ Encoding Considerations</h3>
 
 <p>Because many characters are not permitted with this syntax, the <tt>segment</tt> and <tt>query</tt> elements may contain characters from the <a class='info' href='#UCS'>Unicode Character Set<span> (</span><span class='info'>International Organization for Standardization, &ldquo;Information Technology - Universal Multiple-Octet Coded Character Set (UCS),&rdquo; December&nbsp;2003.</span><span>)</span></a> [UCS] as suggested by <a class='info' href='#RFC3986'>URI<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a> [RFC3986], by first encoding those characters as octets to the <a class='info' href='#RFC3629'>UTF-8 character encoding<span> (</span><span class='info'>Yergeau, F., &ldquo;UTF-8, a transformation format of ISO 10646,&rdquo; November&nbsp;2003.</span><span>)</span></a> [RFC3629]; then only those octets that do not correspond to characters in the unreserved set should be percent-encoded.
 </p>
-<p>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to about URIs according to <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. Since about URIs do not use domain names, <tt>ireg-name</tt> conversion is unnecessary.
+<p>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to <tt>about</tt> URIs according to <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. Since <tt>about</tt> URIs do not use domain names, <tt>ireg-name</tt> conversion is unnecessary.
 </p>
 <a name="anchor1"></a><br /><hr />
 <a name="rfc.section.4"></a><h3>4.&nbsp;
-Resolving About URIs</h3>
+Resolving &quot;about&quot; URIs</h3>
 
-<p>In general, applications are free to resolve any about URI to any resource, either internal or external, or redirect to an alternative URI, with <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> being the only exception.
+<p>In general, applications are free to resolve any <tt>about</tt> URI to any resource, either internal or external, or redirect to an alternative URI, with "<a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a>" being the only exception.
 </p>
-<p>As about URIs are designed to be internal to each application, there is no expectation of any URI, except <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a>, returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common about URIs.
+<p>As <tt>about</tt> URIs are designed to be internal to each application, there is no expectation of any URI, except "<a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a>", returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <tt>about</tt> URIs.
 </p>
-<p>Because about URIs identify application specific information, applications SHOULD NOT retrieve remote information for such a resource.
+<p>Because <tt>about</tt> URIs identify application specific information, applications SHOULD NOT retrieve remote information for such a resource.
 </p>
-<p>The <a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a> URI is the only about URI reserved by this specification.
+<p>The "<a class='info' href='#blank'>about:blank<span> (</span><span class='info'>about:blank</span><span>)</span></a>" URI is the only <tt>about</tt> URI reserved by this specification.
 </p>
 <a name="blank"></a><br /><hr />
 <a name="rfc.section.4.1"></a><h3>4.1.&nbsp;
@@ -256,7 +256,7 @@ Examples</h3>
 </dd>
 </dl></blockquote>
 
-<p>Applications are also permitted to redirect such URIs. For example, Opera redirects all about URIs, with the exception of <tt>about:blank</tt>, to the equivalent URI using their internal opera: scheme. e.g. <tt>about:config</tt> redirects to <tt>opera:config</tt>.
+<p>Applications are also permitted to redirect such URIs. For example, Opera redirects all <tt>about</tt> URIs, with the exception of <tt>about:blank</tt>, to the equivalent URI using their internal <tt>opera:</tt> scheme. e.g. <tt>about:config</tt> redirects to <tt>opera:config</tt>.
 </p>
 <p>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <a class='info' href='#wikiabout'>Wikipedia's entry on the "about: URI Scheme"<span> (</span><span class='info'>Wikipedia, The Free Encyclopedia, &ldquo;About: URI scheme,&rdquo; March&nbsp;2009.</span><span>)</span></a> [wikiabout].
 </p>
@@ -264,27 +264,27 @@ Examples</h3>
 <a name="rfc.section.5"></a><h3>5.&nbsp;
 Normalization</h3>
 
-<p>About URIs use the standard <a class='info' href='#RFC3986'>URI normalization rules<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a> [RFC3986], specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <tt>about:blank</tt>, <tt>about:blan%6B</tt> and <tt>about:blan%6b</tt> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of about URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <tt>about:blank</tt> is not equivalent to <tt>about:BLANK</tt>, <tt>about:blank?</tt> or <tt>about:blank:</tt>, each may represent a different resource. Similarly, <tt>about:blank%3F</tt> is not equivalent to <tt>about:blank?</tt>.
+<p><tt>about</tt> URIs use the standard <a class='info' href='#RFC3986'>URI normalization rules<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a> [RFC3986], specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <tt>about:blank</tt>, <tt>about:blan%6B</tt> and <tt>about:blan%6b</tt> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of <tt>about</tt> URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <tt>about:blank</tt> is not equivalent to <tt>about:BLANK</tt>, <tt>about:blank?</tt> or <tt>about:blank:</tt>, each may represent a different resource. Similarly, <tt>about:blank%3F</tt> is not equivalent to <tt>about:blank?</tt>.
 </p>
 <a name="anchor3"></a><br /><hr />
 <a name="rfc.section.6"></a><h3>6.&nbsp;
-Relative About URIs</h3>
+Relative &quot;about&quot; URIs</h3>
 
-<p>As about URIs do not use a hierarchical path, relative about URIs are not permitted.
+<p>As <tt>about</tt> URIs do not use a hierarchical path, relative <tt>about</tt> URIs are not permitted.
 </p>
 <a name="security"></a><br /><hr />
 <a name="rfc.section.7"></a><h3>7.&nbsp;
 Security Considerations</h3>
 
-<p>Implementations of the scheme SHOULD NOT modify data when processing about resource identifiers. Applications SHOULD NOT use about URIs to access or erase files or other sensitive information.
+<p>Implementations of the scheme SHOULD NOT modify data when processing <tt>about</tt> resource identifiers. Applications SHOULD NOT use <tt>about</tt> URIs to access or erase files or other sensitive information.
 </p>
-<p>About URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.
+<p><tt>about</tt> URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.
 </p>
 <a name="anchor4"></a><br /><hr />
 <a name="rfc.section.8"></a><h3>8.&nbsp;
 IANA Considerations</h3>
 
-<p>This specification requests the IANA provisionally register the about URI scheme as specified in this document and summarized in the following template, per <a class='info' href='#RFC4395'>[RFC4395]<span> (</span><span class='info'>Hansen, T., Hardie, T., and L. Masinter, &ldquo;Guidelines and Registration Procedures for New URI Schemes,&rdquo; February&nbsp;2006.</span><span>)</span></a>:
+<p>This specification requests the IANA provisionally register the <tt>about</tt> URI scheme as specified in this document and summarized in the following template, per <a class='info' href='#RFC4395'>[RFC4395]<span> (</span><span class='info'>Hansen, T., Hardie, T., and L. Masinter, &ldquo;Guidelines and Registration Procedures for New URI Schemes,&rdquo; February&nbsp;2006.</span><span>)</span></a>:
 </p>
 <p></p>
 <blockquote class="text"><dl>
@@ -310,7 +310,7 @@ IANA Considerations</h3>
 <dd>Any applications that use URIs as identifiers for private resources, such as web browsers.
 </dd>
 <dt>Interoperability considerations:</dt>
-<dd>Applications are only required to support about:blank, and may choose to interpret other about URIs differently.
+<dd>Applications are only required to support <tt>about:blank</tt>, and may choose to interpret other <tt>about</tt> URIs differently.
 </dd>
 <dt>Security considerations:</dt>
 <dd>See <a class='info' href='#security'>Section&nbsp;7<span> (</span><span class='info'>Security Considerations</span><span>)</span></a>
