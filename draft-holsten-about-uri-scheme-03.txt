@@ -73,12 +73,6 @@ Editorial Note (To be removed by RFC Editor)
    browsers for providing access to built-in functionality, such as
    application information, preferences, settings, or "easter eggs".
 
-   While any number of existing schemes could be used to identify such
-   resources, about URIs have become the de facto standard.  Browsers
-   already use the about scheme.  The about:blank (Section 4.1) URI is
-   ubiquitous, and some browsers also provide other resources with the
-   about scheme, including those in Section 4.2.
-
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
@@ -106,18 +100,18 @@ Editorial Note (To be removed by RFC Editor)
    to [RFC3987].  Since about URIs do not use domain names, "ireg-name"
    conversion is unnecessary.
 
+4.  Resolving About URIs
+
+   In general, applications are free to resolve any about URI to any
+   resource, either internal or external, or redirect to an alternative
+   URI, with about:blank being the only exception.
+
 
 
 Holsten & Hunt          Expires February 2, 2010                [Page 2]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-4.  Resolving About URIs
-
-   In general, applications are free to resolve any about URI to any
-   resource, either internal or external, or redirect to an alternative
-   URI, with about:blank being the only exception.
 
    As about URIs are designed to be internal to each application, there
    is no expectation of any URI, except about:blank, returning the same
@@ -161,6 +155,12 @@ Internet-Draft           The 'about' URI scheme              August 2009
    "about:config" redirects to "opera:config".
 
    This is not an exhaustive list.  Many more are supported by numerous
+   applications.  For more examples, consult Wikipedia's entry on the
+   "about: URI Scheme" [wikiabout].
+
+
+
+
 
 
 
@@ -168,9 +168,6 @@ Holsten & Hunt          Expires February 2, 2010                [Page 3]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-   applications.  For more examples, consult Wikipedia's entry on the
-   "about: URI Scheme" [wikiabout].
 
 5.  Normalization
 
@@ -214,8 +211,11 @@ Internet-Draft           The 'about' URI scheme              August 2009
 
    URI scheme syntax:  See Section 2
 
+   URI scheme semantics:  See Section 1
 
-
+   Encoding considerations:  Percent-encoding is allowed in "segment"
+      and "query" components.  Internationalization is handled by IRI
+      processing.  See Section 3.
 
 
 
@@ -224,12 +224,6 @@ Holsten & Hunt          Expires February 2, 2010                [Page 4]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-   URI scheme semantics:  See Section 1
-
-   Encoding considerations:  Percent-encoding is allowed in "segment"
-      and "query" components.  Internationalization is handled by IRI
-      processing.  See Section 3.
 
    Intended usage:  See Section 1
 
@@ -273,6 +267,12 @@ Internet-Draft           The 'about' URI scheme              August 2009
                 Identifiers (IRIs)", RFC 3987, January 2005.
 
    [RFC5234]    Crocker, D. and P. Overell, "Augmented BNF for Syntax
+                Specifications: ABNF", STD 68, RFC 5234, January 2008.
+
+   [UCS]        International Organization for Standardization,
+                "Information Technology - Universal Multiple-Octet Coded
+                Character Set (UCS)", ISO/IEC Standard 10646,
+                December 2003.
 
 
 
@@ -280,13 +280,6 @@ Holsten & Hunt          Expires February 2, 2010                [Page 5]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-                Specifications: ABNF", STD 68, RFC 5234, January 2008.
-
-   [UCS]        International Organization for Standardization,
-                "Information Technology - Universal Multiple-Octet Coded
-                Character Set (UCS)", ISO/IEC Standard 10646,
-                December 2003.
 
 10.2.  Informative References
 
@@ -310,6 +303,13 @@ Authors' Addresses
 
    EMail: lachlan.hunt@lachy.id.au
    URI:   http://lachy.id.au/
+
+
+
+
+
+
+
 
 
 

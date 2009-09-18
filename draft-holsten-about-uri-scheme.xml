@@ -61,7 +61,6 @@
     <middle>
         <section anchor="intro" title="Introduction">
             <t>An about URI is designed to be used internally by applications for almost any desired purpose.    Such URIs have commonly been used by web browsers for providing access to built-in functionality, such as application information, preferences, settings, or "easter eggs".</t>
-            <t>While any number of existing schemes could be used to identify such resources, about URIs have become the de facto standard. Browsers already use the about scheme. The <xref target="blank">about:blank</xref> URI is ubiquitous, and some browsers also provide other resources with the about scheme, including those in <xref target="examples" />.</t>
             <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",    "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119" />.</t>
         </section>
     <section anchor="syntax" title="URI Syntax">
