@@ -106,7 +106,7 @@
         <section anchor="security" title="Security Considerations">
             <!-- must play nice with RFC3552 and RFC4949 -->
             <t>Implementations of the scheme SHOULD NOT modify data when processing <spanx style="verb">about</spanx> resource identifiers. Applications SHOULD NOT use <spanx style="verb">about</spanx> URIs to access or erase files or other sensitive information.</t>
-            <t><spanx style="verb">about</spanx> URIs MAY identify resources which show sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
+            <t><spanx style="verb">about</spanx> URIs MAY identify resources that reveal sensitive information. Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.</t>
         </section>
         <section title="IANA Considerations">
             <!-- must play nice with RFC2434, RFC4395 -->

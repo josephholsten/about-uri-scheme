@@ -187,10 +187,10 @@ Internet-Draft           The 'about' URI scheme              August 2009
    "about" resource identifiers.  Applications SHOULD NOT use "about"
    URIs to access or erase files or other sensitive information.
 
-   "about" URIs MAY identify resources which show sensitive information.
-   Applications SHOULD ensure appropriate restrictions are in place to
-   protect such information from access or modification by untrusted
-   sources.
+   "about" URIs MAY identify resources that reveal sensitive
+   information.  Applications SHOULD ensure appropriate restrictions are
+   in place to protect such information from access or modification by
+   untrusted sources.
 
 9.  IANA Considerations
 
