@@ -83,7 +83,7 @@
         <t>As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any URI, except "<xref target="blank" format="title" />", returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
         <t>The "<xref target="blank" format="title" />" URI is the only <spanx style="verb">about</spanx> URI reserved by this specification.</t>
         <section anchor="blank" title="about:blank">
-            <t>Applications resolving this URI MUST return an empty resource, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
+            <t>Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
         </section>
         <section anchor="examples" title="Examples">
             <t>The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
