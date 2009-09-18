@@ -119,10 +119,6 @@ Internet-Draft           The 'about' URI scheme              August 2009
    noting that some conventions have arisen for providing particular
    functionality via common "about" URIs.
 
-   Because "about" URIs identify application specific information,
-   applications SHOULD NOT retrieve remote information for such a
-   resource.
-
    The "about:blank" URI is the only "about" URI reserved by this
    specification.
 
@@ -158,9 +154,13 @@ Internet-Draft           The 'about' URI scheme              August 2009
    applications.  For more examples, consult Wikipedia's entry on the
    "about: URI Scheme" [wikiabout].
 
+6.  Normalization
 
-
-
+   "about" URIs use the standard URI normalization rules [RFC3986],
+   specifically Simple String Comparison, Case Normalization, and
+   Percent-Encoding Normalization.  For example, "about:blank",
+   "about:blan%6B" and "about:blan%6b" are equivalent, though the
+   percent-encoded forms are discouraged.  Due to the structure of
 
 
 
@@ -169,13 +169,6 @@ Holsten & Hunt          Expires February 2, 2010                [Page 3]
 Internet-Draft           The 'about' URI scheme              August 2009
 
 
-6.  Normalization
-
-   "about" URIs use the standard URI normalization rules [RFC3986],
-   specifically Simple String Comparison, Case Normalization, and
-   Percent-Encoding Normalization.  For example, "about:blank",
-   "about:blan%6B" and "about:blan%6b" are equivalent, though the
-   percent-encoded forms are discouraged.  Due to the structure of
    "about" URIs, some normalizations do not apply, specifically Syntax-
    Based Normalization, Scheme-Based Normalization, and Protocol-Based
    Normalization.  For example, "about:blank" is not equivalent to
@@ -217,6 +210,13 @@ Internet-Draft           The 'about' URI scheme              August 2009
       and "query" components.  Internationalization is handled by IRI
       processing.  See Section 4.
 
+   Intended usage:  See Section 1
+
+   Applications and/or protocols that use this URI scheme name:  Any
+      applications that use URIs as identifiers for private resources,
+      such as web browsers.
+
+
 
 
 
@@ -224,12 +224,6 @@ Holsten & Hunt          Expires February 2, 2010                [Page 4]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-   Intended usage:  See Section 1
-
-   Applications and/or protocols that use this URI scheme name:  Any
-      applications that use URIs as identifiers for private resources,
-      such as web browsers.
 
    Interoperability considerations:  Applications are only required to
       support "about:blank", and may choose to interpret other "about"
@@ -274,18 +268,18 @@ Internet-Draft           The 'about' URI scheme              August 2009
                 Character Set (UCS)", ISO/IEC Standard 10646,
                 December 2003.
 
+11.2.  Informative References
+
+   [RFC4395]    Hansen, T., Hardie, T., and L. Masinter, "Guidelines and
+                Registration Procedures for New URI Schemes", BCP 35,
+                RFC 4395, February 2006.
+
 
 
 Holsten & Hunt          Expires February 2, 2010                [Page 5]
 
 Internet-Draft           The 'about' URI scheme              August 2009
 
-
-11.2.  Informative References
-
-   [RFC4395]    Hansen, T., Hardie, T., and L. Masinter, "Guidelines and
-                Registration Procedures for New URI Schemes", BCP 35,
-                RFC 4395, February 2006.
 
    [wikiabout]  Wikipedia, The Free Encyclopedia, "About: URI scheme",
                 March 2009.
@@ -303,6 +297,12 @@ Authors' Addresses
 
    EMail: lachlan.hunt@lachy.id.au
    URI:   http://lachy.id.au/
+
+
+
+
+
+
 
 
 
