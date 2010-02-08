@@ -4,12 +4,23 @@
 Network Working Group                                         J. Holsten
 Internet-Draft
 Intended status: Standards Track                                 L. Hunt
-Expires: February 2, 2010                           Opera Software, ASA.
-                                                             August 2009
+Expires: August 12, 2010                            Opera Software, ASA.
+                                                        February 8, 2010
 
 
                          The 'about' URI scheme
                    draft-holsten-about-uri-scheme-03
+
+Abstract
+
+   A URI using the "about:" scheme, henceforth refered to as an "about"
+   URI, is designed to be used internally by applications for almost any
+   desired purpose.
+
+Editorial Note (To be removed by RFC Editor)
+
+   Discussion of this draft should take place on the URI Review mailing
+   list (uri-review@ietf.org).
 
 Status of This Memo
 
@@ -32,37 +43,29 @@ Status of This Memo
    The list of Internet-Draft Shadow Directories can be accessed at
    http://www.ietf.org/shadow.html.
 
-   This Internet-Draft will expire on February 2, 2010.
+   This Internet-Draft will expire on August 12, 2010.
 
 Copyright Notice
 
-   Copyright (c) 2009 IETF Trust and the persons identified as the
+   Copyright (c) 2010 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents in effect on the date of
-   publication of this document (http://trustee.ietf.org/license-info).
-   Please review these documents carefully, as they describe your rights
-   and restrictions with respect to this document.
-
-Abstract
-
-   A URI using the "about:" scheme, henceforth refered to as an "about"
-   URI, is designed to be used internally by applications for almost any
 
 
-
-Holsten & Hunt          Expires February 2, 2010                [Page 1]
+Holsten & Hunt           Expires August 12, 2010                [Page 1]
 
-Internet-Draft           The 'about' URI scheme              August 2009
+Internet-Draft           The 'about' URI scheme            February 2010
 
 
-   desired purpose.
-
-Editorial Note (To be removed by RFC Editor)
-
-   Discussion of this draft should take place on the URI Review mailing
-   list (uri-review@ietf.org).
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the BSD License.
 
 1.  Introduction
 
@@ -100,35 +103,73 @@ Editorial Note (To be removed by RFC Editor)
    according to [RFC3987].  Since "about" URIs do not use domain names,
    "ireg-name" conversion is unnecessary.
 
+
+
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 2]
+
+Internet-Draft           The 'about' URI scheme            February 2010
+
+
 5.  Resolving "about" URIs
 
-   In general, applications are free to resolve any "about" URI to any
-   resource, either internal or external, or redirect to an alternative
-   URI, with "about:blank" being the only exception.
+   A reserved "about" URI is one that is defined by a specification for
+   a specific purpose, which MAY also be defined to be resolvable.
 
+   An unreserved "about" URI is any other "about" URI that is not
+   defined by a specification for a specific purpose, but which may be
+   recognised by an application.
 
+   An unrecognised "about" URI is an "about" URI that is not recognised
+   by an application.
 
-Holsten & Hunt          Expires February 2, 2010                [Page 2]
-
-Internet-Draft           The 'about' URI scheme              August 2009
+5.1.  Reserved "about" URIs
 
+   Other specifications MAY reserve "about" URIs.  Applications
+   attempting to resolve reserved "about" URIs that are not defined to
+   be resolvable, MAY treat such URIs as being unreserved.
 
-   As "about" URIs are designed to be internal to each application,
-   there is no expectation of any URI, except "about:blank", returning
-   the same resource among different applications.  However, it is worth
-   noting that some conventions have arisen for providing particular
-   functionality via common "about" URIs.
+5.1.1.  about:blank
 
-   The "about:blank" URI is the only "about" URI reserved by this
-   specification.
-
-5.1.  about:blank
-
+   The "about" URI with the segment equal to "blank" and no query
+   component is reserved by this specification. i.e. "about:blank".
    Applications resolving the URI "about:blank" MUST return a resource
    of zero length, containing no data, with the media type "text/html"
    and the character encoding "UTF-8".
 
-5.2.  Examples
+   Note: If a query component is provided with "about:blank", such as
+   "about:blank?" or "about:blank?foo", then the URI is not considered
+   to be reserved by this specification.
+
+5.2.  Unreserved "about" URIs
+
+   Applications MAY resolve any unreserved "about" URI to any resource,
+   either internal or external, or redirect to an alternative URI.
+
+   Note: As "about" URIs are designed to be internal to each
+   application, there is no expectation of any unreserved URI returning
+   the same resource among different applications.  However, it is worth
+   noting that some conventions have arisen for providing particular
+   functionality via common "about" URIs.
+
+5.3.  Unrecognised "about" URIs
+
+   Applications SHOULD resolve unrecognised "about" URIs in the same way
+   as "about:blank".
+
+
+
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 3]
+
+Internet-Draft           The 'about' URI scheme            February 2010
+
+
+5.4.  Examples
 
    The following examples illustrate some known URIs supported by
    existing applications.  They are not guaranteed to be resolvable by
@@ -161,14 +202,6 @@ Internet-Draft           The 'about' URI scheme              August 2009
    specifically Simple String Comparison, Case Normalization, and
    Percent-Encoding Normalization.  For example, "about:blank",
    "about:blan%6B" and "about:blan%6b" are equivalent, though the
-
-
-
-Holsten & Hunt          Expires February 2, 2010                [Page 3]
-
-Internet-Draft           The 'about' URI scheme              August 2009
-
-
    percent-encoded forms are discouraged.  Due to the structure of
    "about" URIs, some normalizations do not apply, specifically Syntax-
    Based Normalization, Scheme-Based Normalization, and Protocol-Based
@@ -181,6 +214,16 @@ Internet-Draft           The 'about' URI scheme              August 2009
 
    As "about" URIs do not use a hierarchical path, relative "about" URIs
    are not permitted.
+
+
+
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 4]
+
+Internet-Draft           The 'about' URI scheme            February 2010
+
 
 8.  Security Considerations
 
@@ -217,14 +260,6 @@ Internet-Draft           The 'about' URI scheme              August 2009
       applications that use URIs as identifiers for private resources,
       such as web browsers.
 
-
-
-
-Holsten & Hunt          Expires February 2, 2010                [Page 4]
-
-Internet-Draft           The 'about' URI scheme              August 2009
-
-
    Interoperability considerations:  Applications are only required to
       support "about:blank", and may choose to interpret other "about"
       URIs differently.
@@ -235,13 +270,25 @@ Internet-Draft           The 'about' URI scheme              August 2009
 
    Contact:  Joseph Holsten (joseph@josephholsten.com)
 
+
+
+
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 5]
+
+Internet-Draft           The 'about' URI scheme            February 2010
+
+
    Author/Change controller:  Joseph Holsten
 
 10.  Acknowledgements
 
    This document was made possible thanks to the input of Henri Sivonen,
-   Ian Hickson, Larry Masinter and Bjoern Hoehrmann.[[NOTE-4: add
-   references to historical implementations and related work. --JH]]
+   Ian Hickson, Larry Masinter, Bjoern Hoehrmann and Julian
+   Reschke.[[NOTE-4: add references to historical implementations and
+   related work. --JH]]
 
 11.  References
 
@@ -274,15 +321,21 @@ Internet-Draft           The 'about' URI scheme              August 2009
                 Registration Procedures for New URI Schemes", BCP 35,
                 RFC 4395, February 2006.
 
-
-
-Holsten & Hunt          Expires February 2, 2010                [Page 5]
-
-Internet-Draft           The 'about' URI scheme              August 2009
-
-
    [wikiabout]  Wikipedia, The Free Encyclopedia, "About: URI scheme",
                 March 2009.
+
+
+
+
+
+
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 6]
+
+Internet-Draft           The 'about' URI scheme            February 2010
+
 
 Authors' Addresses
 
@@ -332,5 +385,9 @@ Authors' Addresses
 
 
 
-Holsten & Hunt          Expires February 2, 2010                [Page 6]
+
+
+
+Holsten & Hunt           Expires August 12, 2010                [Page 7]
 
+
