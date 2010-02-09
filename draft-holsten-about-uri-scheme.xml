@@ -52,7 +52,7 @@
         <keyword>Uniform Resource Identifier</keyword>
         <keyword>about</keyword>
         <abstract>
-            <t>A URI using the <spanx style="verb">about:</spanx> scheme, henceforth refered to as an <spanx style="verb">about</spanx> URI, is designed to be used internally by applications for almost any desired purpose.</t>
+            <t>A URI using the <spanx style="verb">about:</spanx> scheme, henceforth referred to as an <spanx style="verb">about</spanx> URI, is designed to be used internally by applications for almost any desired purpose.</t>
         </abstract>
         <note title="Editorial Note (To be removed by RFC Editor)">
           <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
@@ -76,7 +76,7 @@
     </section>
     <section anchor="encoding" title="Encoding Considerations">
         <t>Because many characters are not permitted with this syntax, the <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> elements may contain characters from the <xref target="UCS">Unicode Character Set</xref> as suggested by <xref target="RFC3986">URI</xref>, by first encoding those characters as octets to the <xref target="RFC3629">UTF-8 character encoding</xref>; then only those octets that do not correspond to characters in the unreserved set should be percent-encoded.</t>
-        <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
+        <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationalized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
     </section>
     <section title="Resolving &quot;about&quot; URIs">
         <t>A reserved <spanx style="verb">about</spanx> URI is one that is defined by a specification for a specific purpose, which MAY also be defined to be resolvable.</t>
