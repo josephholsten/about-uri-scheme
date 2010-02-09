@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env tclsh
 # the next line restarts using the correct interpreter \
 exec tclsh "$0" "$0" "$@"
 
