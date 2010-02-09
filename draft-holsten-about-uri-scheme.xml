@@ -167,10 +167,9 @@
                     <author fullname='Wikipedia contributors'>
                         <organization>Wikipedia, The Free Encyclopedia</organization>
                     </author>
-                    <date month='March' year='2009' day="18" />
                 </front>
                 <format type='HTML'
-                    target='http://en.wikipedia.org/w/index.php?title=About:_URI_scheme&amp;oldid=278165554' />
+                    target='http://en.wikipedia.org/wiki/About:_URI_scheme' />
             </reference>
         </references>
     </back>
