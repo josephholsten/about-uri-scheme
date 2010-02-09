@@ -85,7 +85,7 @@
         <section title="Reserved &quot;about&quot; URIs">
             <t>Other specifications MAY reserve <spanx style="verb">about</spanx> URIs. Applications attempting to resolve reserved <spanx style="verb">about</spanx> URIs that are not defined to be resolvable, MAY treat such URIs as being unreserved.</t>
             <section anchor="blank" title="about:blank">
-                <t>The <spanx style="verb">about</spanx> URI with the segment equal to <spanx style="verb">blank</spanx> and no query component is reserved by this specification. i.e. <spanx style="verb">about:blank</spanx>. Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
+                <t>The <spanx style="verb">about</spanx> URI with the segment equal to <spanx style="verb">blank</spanx> and no query component is reserved by this specification. i.e. <spanx style="verb">about:blank</spanx>. Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding "UTF-8".</t>
                 <t>Note: If a query component is provided with <spanx style="verb">about:blank</spanx>, such as <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank?foo</spanx>, then the URI is not considered to be reserved by this specification.</t>
             </section>
         </section>
@@ -94,7 +94,7 @@
             <t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any unreserved URI returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
         </section>
         <section title="Unrecognized &quot;about&quot; URIs">
-            <t>Applications SHOULD resolve unrecognized <spanx style="verb">about</spanx> URIs in the same way as <spanx style="verb">about:blank</spanx>.</t>
+            <t>Applications SHOULD resolve unrecognized <spanx style="verb">about</spanx> URIs in the same way as "<xref target="blank" format="title" />".</t>
         </section>
         <section anchor="examples" title="Examples">
             <t>The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
