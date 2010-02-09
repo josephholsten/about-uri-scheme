@@ -27,7 +27,7 @@
 -->
 
 
-<rfc category="std" ipr="trust200902" docName="draft-holsten-about-uri-scheme-03">
+<rfc category="std" ipr="trust200902" docName="draft-holsten-about-uri-scheme-04">
     <front>
         <title>The 'about' URI scheme</title>
         <author initials="J." surname="Holsten" fullname="Joseph Anthony Pasquale Holsten" >
@@ -44,7 +44,7 @@
                 <uri>http://lachy.id.au/</uri>
             </address>
         </author>
-        <date month="August" year="2009" />
+        <date month="February" year="2010" />
         <area>Internet</area>
         <keyword>I-D</keyword>
         <keyword>Internet-Draft</keyword>
