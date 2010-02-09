@@ -79,11 +79,22 @@
         <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationlized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
     </section>
     <section title="Resolving &quot;about&quot; URIs">
-        <t>In general, applications are free to resolve any <spanx style="verb">about</spanx> URI to any resource, either internal or external, or redirect to an alternative URI, with "<xref target="blank" format="title" />" being the only exception.</t>
-        <t>As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any URI, except "<xref target="blank" format="title" />", returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
-        <t>The "<xref target="blank" format="title" />" URI is the only <spanx style="verb">about</spanx> URI reserved by this specification.</t>
-        <section anchor="blank" title="about:blank">
-            <t>Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
+        <t>A reserved "about" URI is one that is defined by a specification for a specific purpose, which MAY also be defined to be resolvable.</t>
+        <t>An unreserved "about" URI is any other "about" URI that is not defined by a specification for a specific purpose, but which may be recognised by an application.</t>
+        <t>An unrecognised "about" URI is an "about" URI that is not recognised by an application.</t>
+        <section title="Reserved &quot;about&quot; URIs">
+            <t>Other specifications MAY reserve "about" URIs.  Applications attempting to resolve reserved "about" URIs that are not defined to be resolvable, MAY treat such URIs as being unreserved.</t>
+            <section anchor="blank" title="about:blank">
+                <t>The "about" URI with the segment equal to "blank" and no query component is reserved by this specification. i.e. "about:blank". Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding <spanx style="verb">UTF-8</spanx>.</t>
+                <t>Note: If a query component is provided with "about:blank", such as "about:blank?" or "about:blank?foo", then the URI is not considered to be reserved by this specification.</t>
+            </section>
+        </section>
+        <section title="Unreserved &quot;about&quot; URIs">
+            <t>Applications MAY resolve any unreserved "about" URI to any resource, either internal or external, or redirect to an alternative URI.</t>
+            <t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any unreserved URI returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
+        </section>
+        <section title="Unrecognised &quot;about&quot; URIs">
+             <t>Applications SHOULD resolve unrecognised "about" URIs in the same way as "about:blank".</t>
         </section>
         <section anchor="examples" title="Examples">
             <t>The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
@@ -127,7 +138,7 @@
             </list></t>
         </section>
         <section title="Acknowledgements">
-            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter and Bjoern Hoehrmann.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
+            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann and Julian Reschke.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
         </section>
     </middle>
     <back>
