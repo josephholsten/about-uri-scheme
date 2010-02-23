@@ -55,7 +55,7 @@
             <t>A URI using the <spanx style="verb">about:</spanx> scheme, henceforth referred to as an <spanx style="verb">about</spanx> URI, is designed to be used internally by applications for almost any desired purpose.</t>
         </abstract>
         <note title="Editorial Note (To be removed by RFC Editor)">
-          <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
+            <t>Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).</t>
         </note>
     </front>
     <middle>
@@ -65,49 +65,49 @@
         <section title="Terminology">
             <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",    "MAY", and "OPTIONAL" in this document are to be interpreted as described in <xref target="RFC2119" />.</t>
         </section>
-    <section anchor="syntax" title="URI Syntax">
-        <figure>
-            <preamble>The general syntax of an <spanx style="verb">about</spanx> URI is defined below using <xref target="RFC5234">ABNF</xref>:</preamble>
-            <artwork type="abnf">
-                abouturi = "about:" segment [ "?" query ]
-            </artwork>
-            <postamble>where <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> are defined in <xref target="RFC3986" />.</postamble>
-        </figure>
-    </section>
-    <section anchor="encoding" title="Encoding Considerations">
-        <t>Because many characters are not permitted with this syntax, the <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> elements may contain characters from the <xref target="UCS">Unicode Character Set</xref> as suggested by <xref target="RFC3986">URI</xref>, by first encoding those characters as octets to the <xref target="RFC3629">UTF-8 character encoding</xref>; then only those octets that do not correspond to characters in the unreserved set should be percent-encoded.</t>
-        <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationalized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
-    </section>
-    <section title="Resolving &quot;about&quot; URIs">
-        <t>A reserved <spanx style="verb">about</spanx> URI is one that is defined by a specification for a specific purpose, which MAY also be defined to be resolvable.</t>
-        <t>An unreserved <spanx style="verb">about</spanx> URI is any other <spanx style="verb">about</spanx> URI that is not defined by a specification for a specific purpose, but which may be recognized by an application.</t>
-        <t>An unrecognized <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx> URI that is not recognized by an application.</t>
-        <section title="Reserved &quot;about&quot; URIs">
-            <t>Other specifications MAY reserve <spanx style="verb">about</spanx> URIs. Applications attempting to resolve reserved <spanx style="verb">about</spanx> URIs that are not defined to be resolvable, MAY treat such URIs as being unreserved.</t>
-            <section anchor="blank" title="about:blank">
-                <t>The <spanx style="verb">about</spanx> URI with the segment equal to <spanx style="verb">blank</spanx> and no query component is reserved by this specification. i.e. <spanx style="verb">about:blank</spanx>. Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding "UTF-8".</t>
-                <t>Note: If a query component is provided with <spanx style="verb">about:blank</spanx>, such as <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank?foo</spanx>, then the URI is not considered to be reserved by this specification.</t>
+        <section anchor="syntax" title="URI Syntax">
+            <figure>
+                <preamble>The general syntax of an <spanx style="verb">about</spanx> URI is defined below using <xref target="RFC5234">ABNF</xref>:</preamble>
+                <artwork type="abnf">
+                    abouturi = "about:" segment [ "?" query ]
+                </artwork>
+                <postamble>where <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> are defined in <xref target="RFC3986" />.</postamble>
+            </figure>
+        </section>
+        <section anchor="encoding" title="Encoding Considerations">
+            <t>Because many characters are not permitted with this syntax, the <spanx style="verb">segment</spanx> and <spanx style="verb">query</spanx> elements may contain characters from the <xref target="UCS">Unicode Character Set</xref> as suggested by <xref target="RFC3986">URI</xref>, by first encoding those characters as octets to the <xref target="RFC3629">UTF-8 character encoding</xref>; then only those octets that do not correspond to characters in the unreserved set should be percent-encoded.</t>
+            <t>By using UTF-8 encoding, there are no known compatibility issues with mapping Internationalized Resource Identifiers to <spanx style="verb">about</spanx> URIs according to <xref target="RFC3987"/>. Since <spanx style="verb">about</spanx> URIs do not use domain names, <spanx style="verb">ireg-name</spanx> conversion is unnecessary.</t>
+        </section>
+        <section title="Resolving &quot;about&quot; URIs">
+            <t>A reserved <spanx style="verb">about</spanx> URI is one that is defined by a specification for a specific purpose, which MAY also be defined to be resolvable.</t>
+            <t>An unreserved <spanx style="verb">about</spanx> URI is any other <spanx style="verb">about</spanx> URI that is not defined by a specification for a specific purpose, but which may be recognized by an application.</t>
+            <t>An unrecognized <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx> URI that is not recognized by an application.</t>
+            <section title="Reserved &quot;about&quot; URIs">
+                <t>Other specifications MAY reserve <spanx style="verb">about</spanx> URIs. Applications attempting to resolve reserved <spanx style="verb">about</spanx> URIs that are not defined to be resolvable, MAY treat such URIs as being unreserved.</t>
+                <section anchor="blank" title="about:blank">
+                    <t>The <spanx style="verb">about</spanx> URI with the segment equal to <spanx style="verb">blank</spanx> and no query component is reserved by this specification. i.e. <spanx style="verb">about:blank</spanx>. Applications resolving the URI <spanx style="verb">about:blank</spanx> MUST return a resource of zero length, containing no data, with the media type <spanx style="verb">text/html</spanx> and the character encoding "UTF-8".</t>
+                    <t>Note: If a query component is provided with <spanx style="verb">about:blank</spanx>, such as <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank?foo</spanx>, then the URI is not considered to be reserved by this specification.</t>
+                </section>
+            </section>
+            <section title="Unreserved &quot;about&quot; URIs">
+                <t>Applications MAY resolve any unreserved <spanx style="verb">about</spanx> URI to any resource, either internal or external, or redirect to an alternative URI.</t>
+                <t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any unreserved URI returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
+            </section>
+            <section title="Unrecognized &quot;about&quot; URIs">
+                <t>Applications SHOULD resolve unrecognized <spanx style="verb">about</spanx> URIs in the same way as "<xref target="blank" format="title" />".</t>
+            </section>
+            <section anchor="examples" title="Examples">
+                <t>The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
+                    <list style="hanging">
+                        <t hangText="about:config">Commonly provides access to application preferences and settings</t>
+                        <t hangText="about:cache">Commonly provides access to information about resources stored in the browsers cache.  Current Mozilla Firefox implementations also accept a query string to specify a specific device to show more information about. e.g. about:cache?device=offline provides details about the offline cache.</t>
+                        <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
+                        <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
+                    </list></t>
+                <t>Applications are also permitted to redirect such URIs. For example, Opera redirects all <spanx style="verb">about</spanx> URIs, with the exception of <spanx style="verb">about:blank</spanx>, to the equivalent URI using their internal <spanx style="verb">opera:</spanx> scheme. e.g. <spanx style="verb">about:config</spanx> redirects to <spanx style="verb">opera:config</spanx>.</t>
+                <t>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
             </section>
         </section>
-        <section title="Unreserved &quot;about&quot; URIs">
-            <t>Applications MAY resolve any unreserved <spanx style="verb">about</spanx> URI to any resource, either internal or external, or redirect to an alternative URI.</t>
-            <t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each application, there is no expectation of any unreserved URI returning the same resource among different applications. However, it is worth noting that some conventions have arisen for providing particular functionality via common <spanx style="verb">about</spanx> URIs.</t>
-        </section>
-        <section title="Unrecognized &quot;about&quot; URIs">
-            <t>Applications SHOULD resolve unrecognized <spanx style="verb">about</spanx> URIs in the same way as "<xref target="blank" format="title" />".</t>
-        </section>
-        <section anchor="examples" title="Examples">
-            <t>The following examples illustrate some known URIs supported by existing applications. They are not guaranteed to be resolvable by every application.
-                <list style="hanging">
-                    <t hangText="about:config">Commonly provides access to application preferences and settings</t>
-                    <t hangText="about:cache">Commonly provides access to information about resources stored in the browsers cache.  Current Mozilla Firefox implementations also accept a query string to specify a specific device to show more information about. e.g. about:cache?device=offline provides details about the offline cache.</t>
-                    <t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
-                    <t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
-                </list></t>
-            <t>Applications are also permitted to redirect such URIs. For example, Opera redirects all <spanx style="verb">about</spanx> URIs, with the exception of <spanx style="verb">about:blank</spanx>, to the equivalent URI using their internal <spanx style="verb">opera:</spanx> scheme. e.g. <spanx style="verb">about:config</spanx> redirects to <spanx style="verb">opera:config</spanx>.</t>
-            <t>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
-        </section>
-    </section>
         <section title="Normalization">
             <t><spanx style="verb">about</spanx> URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of <spanx style="verb">about</spanx> URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each may represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
         </section>
