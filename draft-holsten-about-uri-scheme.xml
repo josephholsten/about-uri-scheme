@@ -111,9 +111,6 @@
         <section title="Normalization">
             <t><spanx style="verb">about</spanx> URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of <spanx style="verb">about</spanx> URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each may represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
         </section>
-        <section title="Relative &quot;about&quot; URIs">
-            <t>As <spanx style="verb">about</spanx> URIs do not use a hierarchical path, relative <spanx style="verb">about</spanx> URIs are not permitted.</t>
-        </section>
         <section anchor="security" title="Security Considerations">
             <!-- must play nice with RFC3552 and RFC4949 -->
             <t>Implementations of the scheme SHOULD NOT modify data when processing <spanx style="verb">about</spanx> resource identifiers. Applications SHOULD NOT use <spanx style="verb">about</spanx> URIs to access or erase files or other sensitive information.</t>
