@@ -135,7 +135,7 @@
             </list></t>
         </section>
         <section title="Acknowledgements">
-            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann and Julian Reschke.<cref anchor="NOTE-4" source="JH">add references to historical implementations and related work.</cref></t>
+            <t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann and Julian Reschke.</t>
         </section>
     </middle>
     <back>
