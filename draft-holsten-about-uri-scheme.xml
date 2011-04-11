@@ -44,6 +44,12 @@
 				<uri>http://lachy.id.au/</uri>
 			</address>
 		</author>
+		<author initials="M" surname="Yevstifeyev" fullname="Mykyta Yevstifeyev">
+			<organization/>
+			<address>
+				<email>evnikita2@gmail.com</email>
+			</address>
+		</author>
 		<date month="November" year="2010" />
 		<area>Internet</area>
 		<keyword>I-D</keyword>
@@ -129,7 +135,7 @@
 				</list>
 			</t>
 
-			<t>The division of <spanx style="verb">about</spanx> URIs into reserved and resolvable categories is per-fact
+			<t>The division of <spanx style="verb">about</spanx> URIs into the reservation and resolution categories is per-fact
 			   while the recognition per-application.  Therefore, while an <spanx style="verb">about</spanx> URI may be classified
 		       as, for example, reserved and resolvable, it may be not be recognized by all applications.</t>
 
