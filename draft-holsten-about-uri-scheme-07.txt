@@ -10,7 +10,7 @@ Expires: May 5, 2011                                Opera Software, ASA.
 
 
                          The 'about' URI scheme
-                   draft-holsten-about-uri-scheme-05
+                   draft-holsten-about-uri-scheme-07
 
 Abstract
 
@@ -375,7 +375,8 @@ Internet-Draft           The 'about' URI scheme            November 2010
 9.  Acknowledgements
 
    This document was made possible thanks to the input of Henri Sivonen,
-   Ian Hickson, Larry Masinter, Bjoern Hoehrmann and Julian Reschke.
+   Ian Hickson, Larry Masinter, Bjoern Hoehrmann, Martin Durst and
+   Julian Reschke.
 
 10.  References
 
@@ -384,7 +385,6 @@ Internet-Draft           The 'about' URI scheme            November 2010
    [RFC2119]       Bradner, S., "Key words for use in RFCs to Indicate
                    Requirement Levels", BCP 14, RFC 2119, March 1997.
 
-   [RFC3629]       Yergeau, F., "UTF-8, a transformation format of ISO
 
 
 
@@ -393,6 +393,7 @@ Holsten, et al.            Expires May 5, 2011                  [Page 7]
 Internet-Draft           The 'about' URI scheme            November 2010
 
 
+   [RFC3629]       Yergeau, F., "UTF-8, a transformation format of ISO
                    10646", STD 63, RFC 3629, November 2003.
 
    [RFC3986]       Berners-Lee, T., Fielding, R., and L. Masinter,
@@ -434,7 +435,6 @@ Authors' Addresses
 
    EMail: joseph@josephholsten.com
    URI:   http://josephholsten.com
-
 
 
 
