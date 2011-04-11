@@ -76,7 +76,7 @@
 			   the applications for almost any desired purpose, such as providing
 			   access to application information, settings, preferences, and even so
 			   called "Easter eggs" (i. e. intentional hidden message, in-joke or
-			   feature in the application; see [EASTER-EGGS]).  It does not put any
+			   feature in the application; see <xref target="EASTER-EGGS"/>).  It does not put any
 			   limit on the type of the information, it designates the access to.</t>
 
 			<t>While any number of existing schemes could be used to identify such
@@ -214,15 +214,25 @@
 						<t hangText="about:config">Commonly provides access to application preferences and settings</t>
 						<t hangText="about:cache">Commonly provides access to information about resources stored in the browsers cache.  Current Mozilla Firefox implementations also accept a query string to specify a specific device to show more information about. e.g. about:cache?device=offline provides details about the offline cache.</t>
 						<t hangText="about:plugins">Commonly provides access to information about installed plugins</t>
-						<t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla</t>
+						<t hangText="about:mozilla">An easter egg supported by Mozilla showing a passage from the fictional Book of Mozilla <xref target="MOZILLA-BOOK"/></t>
 					</list></t>
 				<t>Applications are also permitted to redirect such URIs. For example, Opera redirects all <spanx style="verb">about</spanx> URIs, with the exception of <spanx style="verb">about:blank</spanx>, to the equivalent URI using their internal <spanx style="verb">opera:</spanx> scheme. e.g. <spanx style="verb">about:config</spanx> redirects to <spanx style="verb">opera:config</spanx>.</t>
-				<t>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <xref target="wikiabout">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
+				<t>This is not an exhaustive list.  Many more are supported by numerous applications. For more examples, consult <xref target="WIKIABOUT">Wikipedia's entry on the "about: URI Scheme"</xref>.</t>
 			</section>
         </section>
 
 		<section title="Normalization">
-			<t><spanx style="verb">about</spanx> URIs use the standard <xref target="RFC3986">URI normalization rules</xref>, specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization. For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx> and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms are discouraged. Due to the structure of <spanx style="verb">about</spanx> URIs, some normalizations do not apply, specifically Syntax-Based Normalization, Scheme-Based Normalization, and Protocol-Based Normalization. For example, <spanx style="verb">about:blank</spanx> is not equivalent to <spanx style="verb">about:BLANK</spanx>, <spanx style="verb">about:blank?</spanx> or <spanx style="verb">about:blank:</spanx>, each MAY represent a different resource. Similarly, <spanx style="verb">about:blank%3F</spanx> is not equivalent to <spanx style="verb">about:blank?</spanx>.</t>
+			<t><spanx style="verb">about</spanx> URIs use the standard <xref target="RFC3986">URI normalization rules</xref>,
+			   specifically Simple String Comparison, Case Normalization, and Percent-Encoding Normalization.
+			   For example, <spanx style="verb">about:blank</spanx>, <spanx style="verb">about:blan%6B</spanx>
+			   and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms
+			   are discouraged.</t>
+
+			<t>Note that these normalization rules apply only to the case of
+			   application built-in resolution of 'about' URIs, i.e.
+			   "about:blan%6B" and "about:blank" SHALL be resolved in the same way. 
+			   Other cases of these URIs usage would require other normalization
+			   rules.</t>
 		</section>
 		<section anchor="security" title="Security Considerations">
 			<!-- must play nice with RFC3552 and RFC4949 -->
@@ -278,6 +288,17 @@
 		</references>   
 		<references  title="Informative References">
 			&RFC4395; <!-- New URI Schemes -->
+			<reference anchor='EASTER-EGGS'>
+				<front>
+					<title>Easter egg (media)</title>
+					<author fullname='Wikipedia contributors'>
+						<organization>Wikipedia, The Free Encyclopedia</organization>
+					</author>
+					<date month="April" year="2011"/>
+				</front>
+				<format type='HTML'
+				    target='http://en.wikipedia.org/wiki/Easter_egg_%28media%29' />
+			</reference>
 			<reference anchor='HTML'>
 				<front>
 					<title>HTML5</title>
@@ -289,7 +310,18 @@
 				<format type='HTML'
 				    target='http://www.w3.org/TR/html5/' />
 			</reference>
-			<reference anchor='wikiabout'>
+			<reference anchor='MOZILLA-BOOK'>
+				<front>
+					<title>The Book of Mozilla</title>
+					<author fullname='Wikipedia contributors'>
+						<organization>Wikipedia, The Free Encyclopedia</organization>
+					</author>
+					<date month="March" year="2011"/>
+				</front>
+				<format type='HTML'
+				    target='http://en.wikipedia.org/wiki/The_Book_of_Mozilla' />
+			</reference>
+			<reference anchor='WIKIABOUT'>
 				<front>
 					<title>About: URI scheme</title>
 					<author fullname='Wikipedia contributors'>
