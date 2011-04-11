@@ -131,7 +131,7 @@
 					   resolvable, meaning that they resolve to a defined resource, even outside of their
 					   defined usage context.</t>
 					<t hangText="Recognition">This relates to whether or not a given application recognises a given
-					   URI and how to resolve it to a particular resource.</t>
+					   URI and knows how to resolve it to a particular resource.</t>
 				</list>
 			</t>
 
@@ -145,7 +145,7 @@
 				   URI MUST be defined as either resolvable or unresolvable.</t>
 
 				<t>An unreserved <spanx style="verb">about</spanx> URI is any other <spanx style="verb">about</spanx>
-				   URI that is not defined by a specification for a specific purpose, but which MAY be recognized
+				   URI that is not defined by a specification for use in a specific context, but which MAY be recognized
 				   by an application.</t>
 
 				<section anchor="blank" title="about:blank">
@@ -183,19 +183,17 @@
 			
 			<section title="Recognition">
 				<t>A recognised <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
-				   URI that not recognized by an application.  Applications that recognise reserved and resolvable
-				   URIs SHOULD use the defined resolution process.  Applications that recognise unreserved or
+				   URI that recognized by an application.  Applications that recognise reserved and resolvable
+				   URIs MUST use the defined resolution process.  Applications that recognise unreserved or
 				   unresolvable URIs MAY resolve the URI in an implementation-specific manner.</t>
 
-				<t>An unrecognized <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
-				   URI that is not recognized by an application.</t>
-
-				<t>Applications MAY resolve any unreserved <spanx style="verb">about</spanx> URI, or any
-				   reserved but unresolvable <spanx style="verb">about</spanx> URI used outside of its defined
+				<t>Applications MAY recognise and resolve any unreserved <spanx style="verb">about</spanx> URI,
+				   or any reserved but unresolvable <spanx style="verb">about</spanx> URI used outside of its defined
 				   context, to any resource, either internal or external, or redirect to an alternative URI.</t>
 
-                <t>Applications SHOULD resolve unrecognized <spanx style="verb">about</spanx> URIs in the same
- 				   way as "<xref target="blank" format="title" />".</t>
+				<t>An unrecognized <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
+				   URI that is not recognized by an application.  Applications SHOULD resolve unrecognized
+				   <spanx style="verb">about</spanx> URIs in the same way as "<xref target="blank" format="title" />".</t>
 
 				<t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each
 				   application, there is no expectation of any unreserved or unresolvable URI returning the
