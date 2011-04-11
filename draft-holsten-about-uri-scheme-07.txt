@@ -10,7 +10,7 @@ Expires: May 5, 2011                                Opera Software, ASA.
 
 
                          The 'about' URI scheme
-                   draft-holsten-about-uri-scheme-07
+                   draft-holsten-about-uri-scheme-05
 
 Abstract
 
