@@ -1,0 +1,433 @@
+.\" Auto generated Nroff by NroffEdit on March 19, 2011
+.pl 10.0i
+.po 0
+.ll 7.2i
+.lt 7.2i
+.nr LL 7.2i
+.nr LT 7.2i
+.ds LF Holsten, et al.
+.ds RF FORMFEED[Page %]
+.ds LH Internet-Draft
+.ds RH March 19, 2011
+.ds CH The 'about' URI scheme
+.ds CF Expires September 20, 2011
+.hy 0
+.nh
+.ad l
+.in 0
+
+.nf
+.tl 'Network Working Group''J. Holsten'
+.tl 'Internet-Draft'''
+.tl 'Intended status: Standards Track''L. Hunt'
+.tl 'Expires: September 20, 2011''Opera Software, ASA.'
+.tl '''M. Yevstifeyev'
+.tl ''''
+.tl '''March 19, 2011'
+.fi
+.in 3
+
+
+.ce 2
+The 'about' URI scheme
+<draft-holsten-about-uri-scheme-07>
+
+.ti 0
+Abstract
+
+This document specifies the 'about' URI scheme, that may be used by the applications for almost any desired purpose, such as providing access to application information, settings, preferences, etc.  This URI scheme has been used by many web browsers for quite a long time informally, i. e. without being documented; this document is to remove such uncertainty and give this scheme an official specification.
+
+
+.ti 0
+Status of This Memo
+
+This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.
+
+Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet- Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."
+
+This Internet-Draft will expire on June 2, 2011.
+
+
+.ti 0
+Copyright Notice
+
+Copyright (c) 2011 IETF Trust and the persons identified as the document authors.  All rights reserved.
+
+This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents \%(http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.
+
+
+.\" \# TD4  -- Set TOC depth by altering this value (TD5 = depth 5)
+.\" \# TOC  -- Beginning of auto updated Table of Contents
+.in 0
+Table of Contents
+
+.nf
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . 3
+      1.1. Terminology . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.  URI Syntax  . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   3.  Encoding Considerations . . . . . . . . . . . . . . . . . . . . 3
+   4.  Resolving "about" URIs  . . . . . . . . . . . . . . . . . . . . 4
+      4.1. Recognized 'about' URIs . . . . . . . . . . . . . . . . . . 4
+         4.1.1.  Reserved "about" URIs . . . . . . . . . . . . . . . . 4
+            4.1.1.1.  about:blank  . . . . . . . . . . . . . . . . . . 5
+            4.1.1.2.  about:legacy-compat  . . . . . . . . . . . . . . 5
+            4.1.1.3.  about:srcdoc . . . . . . . . . . . . . . . . . . 5
+         4.1.2.  Unreserved "about" URIs . . . . . . . . . . . . . . . 5
+      4.2.  Unrecognized "about" URIs  . . . . . . . . . . . . . . . . 5
+   5.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+   6.  Normalization . . . . . . . . . . . . . . . . . . . . . . . . . 7
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . . . 7
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . . . 8
+      8.1. URI Scheme Registrations  . . . . . . . . . . . . . . . . . 8
+      8.2. IANA Registry for 'about' URIs Segment Tokens . . . . . . . 8
+         8.2.1. Initial Registrations  . . . . . . . . . . . . . . . . 9
+   9.   Acknowledgements . . . . . . . . . . . . . . . . . . . . . .  10
+   10.  References . . . . . . . . . . . . . . . . . . . . . . . . .  10
+      10.1.  Normative References  . . . . . . . . . . . . . . . . .  10
+      10.2.  Informative References  . . . . . . . . . . . . . . . .  11
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
+.fi
+.in 3
+
+.\" \# ETC -- End of auto updated Table of Contents
+
+.ti 0
+Editorial Note (To be removed by RFC Editor)
+
+Discussion of this draft should take place on the URI Review mailing list (uri-review@ietf.org).
+
+.bp
+.ti 0
+1.  Introduction
+
+This document specifies the 'about' URI scheme, that may be used by the applications for almost any desired purpose, such as providing access to application information, settings, preferences, and even so called "Easter eggs" (i. e. intentional hidden message, in-joke or feature in the application; see [EASTER-EGGS]).  It does not put any limit on the type of the information, it designates the access to.  
+
+While any number of existing schemes could be used to identify such resources, 'about' URI has become the de facto standard.  The 'about' URI scheme has been used by many applications for quite a long time informally.  they include such well-known browsers as Microsoft Internet Explorer, Mozilla Firefox, Safari as well as less popular Google Chrome, Konqueror and many others.  However during this time the 'about' URI scheme have not been given any specification, either published as RFC or in any other way.  This document is to remove such uncertainty and give this scheme an official specification and registration.  It also established the IANA registry for 'about' URIs segment tokens.
+
+.ti 0
+1.1. Terminology
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC2119].
+
+
+.ti 0
+2.  URI Syntax
+
+The general syntax of an 'about' URI takes the form of <abouturi> rule below, that is defined using ABNF [RFC5234]:
+
+abouturi = "about:" segment [ "?" query ]
+
+where <segment> and <query> are defined in RFC 3986 [RFC3986].
+
+
+.ti 0
+3.  Encoding Considerations
+
+Because many characters are not permitted with the syntax, described above, the <segment> and <query> elements MAY contain characters from the Unicode Character Set [UCS] as suggested by RFC 3986 [RFC3986], by first encoding those characters as octets to the UTF-8 character encoding [RFC3629]; those octets that correspond to characters in the unreserved set [RFC3986] SHOULD NOT be percent-encoded.
+
+By using UTF-8 encoding, there are no known compatibility issues with mapping Internationalized Resource Identifiers to 'about' URIs according to [RFC3987].  Since 'about' URIs do not use domain names, \%"ireg-name" conversion is unnecessary.
+
+
+.ti 0
+4.  Resolving "about" URIs
+
+All 'about' URIs are split into two groups: reserved and unreserved.  A reserved 'about' URI is one that is claimed to be used for a specific purpose, which MAY also be defined to be resolvable.  An unreserved 'about' URI is any other 'about' URI that is not claimed to be used for a specific purpose, but which MAY be recognized by an application.
+
+Another, higher-level, classification is splitting them into recognized and unrecognized URIs.  A recognized 'about' URI is an 'about' URI that is recognized by the application and may be resolved.  An unrecognized 'about' URI is an 'about' URI that is not recognized by an application and cannot be resolved.  Either reserved or unreserved 'about' URI MAY be recognized or unrecognized for the specific application.
+
+The division of 'about' URIs into reserved and unreserved is per-fact while classification them into recognized and unrecognized is per-application.  Therefore, while an 'about' URI may be classified only as reserved or unreserved, it may be recognized by one application and unrecognized for the other one.
+
+The resolving procedures for 'about' URIs are described below.
+
+.ti 0
+4.1. Recognized 'about' URIs
+
+The following rules apply to resolving recognized 'about' URIs.
+
+.ti 0
+4.1.1.  Reserved "about" URIs
+
+The reserved 'about' URIs, if they are defined to be resolvable, SHALL be resolved to the application's internal web page or other resource, according to the specific <segment> of such URI.  This document specifies 3 reserved 'about' URIs.  Other reserved 'about' URIs MAY be specified to be reserved by adding the corresponding entry to the IANA registry for 'about' URIs segment tokens.  Applications attempting to resolve reserved 'about' URIs that are not defined to be resolvable, MAY treat such URIs as being unreserved.
+
+Please note that the 'about' URIs described below are NOT REQUIRED to be implemented by applications, compatible with this specification.
+
+.ti 0
+4.1.1.1.  about:blank
+
+The 'about' URI with the segment equal to "blank" and no query component is reserved by this specification.  Applications resolving the URI "about:blank" SHOULD return a blank HTML document with the media type "text/html" and character encoding "UTF-8".  Such document should not necessarily be of zero length - it SHALL just represent the blank page (e. g. Microsoft Internet Explorer resolves an "about:blank" URI to the web page of following contents: "<html></html>").
+
+.ti 0
+4.1.1.2.  about:legacy-compat
+
+The 'about' URI with the segment equal to "legacy-compat" and no query component is reserved by this specification, per HTML 5 Markup Reference [HTML5-MARKUP].  The "about:legacy-compat" URI is an unresolvable address defined there intended for use in the DOCTYPE designed for compatibility with some legacy authoring tools, such as XSLT, which may not be capable of outputting the more common, shorter alternative that lacks both the PUBLIC and SYSTEM identifiers.  See [HTML5-MARKUP] for details.
+
+.ti 0
+4.1.1.3.  about:srcdoc
+
+The 'about' URI with the segment equal to "srcdoc" and no query component is reserved by this specification, per HTML 5 Markup Reference [HTML5-MARKUP].  The "about:srdoc" URI is an unresolvable address defined there intended to be the address navigated to within iframes whose content comes from the srcdoc attribute.  See [HTML5-MARKUP] for details.
+
+.ti 0
+4.1.2.  Unreserved "about" URIs
+
+Applications MAY resolve any unreserved "about" URI to any resource, either internal or external, or redirect to an alternative URI.  
+
+Note: As 'about' URIs are designed to be internal to each application, there is no expectation of any unreserved URI returning the same resource among different applications.  However, it is worth noting that some conventions have arisen for providing particular functionality via common 'about' URIs.
+
+Historical note: Early versions of Netscape and Microsoft Internet Explorer resolved unreserved 'about' URIs in the following way: they just displayed the text after "about:", treating it as HTML document.  However currently these applications refused such behavior.
+
+.ti 0
+4.2.  Unrecognized "about" URIs
+
+Applications SHOULD resolve unrecognized, either reserved or unreserved, 'about' URIs in the same way as "about:blank".
+
+
+.ti 0
+5.  Examples
+
+The following examples illustrate some known URIs supported by existing applications.  They are not guaranteed to be resolvable by every application.
+
+.in 6
+.ti 3
+about:config  Commonly provides access to application preferences and settings
+
+.ti 3
+about:cache  Commonly provides access to information about resources stored in the browsers cache.  Current Mozilla Firefox implementations also accept a query string to specify a specific device to show more information about. e.g. about:cache?device=offline provides details about the offline cache.
+
+.ti 3
+about:plugins  Commonly provides access to information about installed plugins
+
+.ti 3
+about:mozilla  An "Easter egg" supported by Mozilla showing a passage from the fictional Book of Mozilla [MOZILLA-BOOK]
+
+.in 3
+Applications are also permitted to redirect such URIs.  For example, Opera redirects all "about" URIs, with the exception of "about:blank", to the equivalent URI using their internal "opera:" scheme. e.g. "about:config" redirects to "opera:config".
+
+This is not an exhaustive list.  Many more are supported by numerous applications.  For more examples, consult Wikipedia's entry on the "about: URI Scheme" [WIKIABOUT].
+
+.bp
+.ti 0
+6.  Normalization
+
+"about" URIs use the standard URI normalization rules [RFC3986], specifically Simple String Comparison, Case Normalization, and \%Percent-Encoding Normalization.  For example, "about:blank", "about:blan%6B" and "about:blan%6b" are equivalent, though the \%percent-encoded forms are discouraged.
+
+Note that these normalization rules apply only to the case of application built-in resolution of 'about' URIs, i. e. "about:blan%6B" and "about:blank" SHALL be resolved in the same way.  Other cases of these URIs usage would require other normalization rules.
+
+
+.ti 0
+7.  Security Considerations
+
+"about" URIs might identify resources that reveal sensitive information.  Applications SHOULD ensure appropriate restrictions are in place to protect such information from access or modification by untrusted sources.
+
+Implementations SHOULD also take note of the security considerations described by RFC 3986 [RFC3986].  In particular, the following issues SHOULD be considered:
+
+.in 6
+.ti 3
+Reliability and Consistency:  Implementations are responsible for the reliability and consistency of the resources returned.  However, implementations SHOULD take care with 'about' URIs that might redirect to, or otherwise return a resource that might subsequently access, remote resources, which might not be reliable or consistent.
+
+.ti 3
+Malicious Construction:  Implementations SHOULD take care to prevent the construction of 'about' URIs that might inadvertently perform damaging local or remote operations, such as the modification of data, or leaking of data to untrusted resources.  For example, incorporating unsanitised data provided by the user via the query string into the resulting page could allow attackers to inject scripts into pages, similar to a cross-site scripting (XSS) attack.
+
+.ti 3
+Sensitive Information:  Implementations SHOULD avoid including sensitive information, such as passwords, within 'about' URIs.
+
+.in 3
+The security considerations for Rare IP Address Formats and Semantic Attacks, as discussed by [RFC3986] do not apply to about URIs, as they do not contain either IP addresses nor <userinfo> components.
+
+
+.ti 0
+8.  IANA Considerations
+
+.ti 0
+8.1. URI Scheme Registrations
+
+This specification requests the IANA register the 'about' URI scheme as specified in this document and summarized in the following template, per RFC 4395 [RFC4395]:
+
+.in 5
+URI scheme name:  about
+
+Status:  Permanent
+
+URI scheme syntax:  See RFC XXXX, Section 3
+
+URI scheme semantics:  See RFC XXXX, Section 1
+
+Encoding considerations:  General encoding considerations described in RFC 3986 [RFC3986] for <segment> and <query> parts apply to 'about' URIs as well.  Internationalization is handled by IRI processing [RFC3987].  See also Section 4 of RFC XXXX.
+
+Intended usage:  An "about" URI is designed to be used internally by applications for almost any desired purpose.  See RFC XXXX, Section 1
+
+Applications and/or protocols that use this URI scheme name:  Any applications that use URIs as identifiers for private internal resources, mostly web browsers.
+
+Interoperability considerations:  None.
+
+Security considerations:  Applications SHOULD ensure appropriate restrictions are in place to protect sensitive information that might be revealed by 'about' URIs from access or modification by untrusted sources.  See RFC XXXX, Section 7.
+
+Relevant publications:  RFC XXXX
+
+Contact:  Joseph Holsten (joseph@josephholsten.com)
+
+Author/Change controller:  IESG <iesg@ietf.org>
+.in 3
+
+[RFC Editor: Please replace XXXX with RFC number assigned for this document].
+
+.ti 0
+8.2. IANA Registry for 'about' URIs Segment Tokens
+
+IANA is asked to create and maintain the registry called "'about' URIs Segment Tokens" following the guidelines below.
+
+The registry's entries consist of 1 field, called "'about' URI Segment Token".  The 'about' URI segment token refers to the string used in the <segment> part of 'about' URIs, with the syntax described in Appendix A of RFC 3986 [RFC3986] for the <segment> rule.  The entries in the registry MUST refer only to _reserved_ 'about' URIs, as described in this document.
+
+The registration procedures for this registry are 'First Come First Served', described in RFC 5226 [RFC5226].  The registrant of such token SHALL also provide the following registration template, that SHALL be available on IANA web site:
+
+.in 5
+'about' URI Segment Token:  REQUIRED field.  Desired 'about' URI token, compliant to the syntax described in Appendix A of RFC 3986 [RFC3986] for the <segment> rule
+
+Intended Usage:  REQUIRED field.  A short description of intended usage of 'about' URI with such segment token
+
+Resolvable 'about' URI:  REQUIRED field.  Should be "yes" if resolvable or "no" if unresolvable
+
+References:  OPTIONAL field.  References to the document(s), if any, that described the registered 'about' URI
+
+Assignment Notes:  OPTIONAL field.  Any additional information about the assignment
+
+Author/Change Controller:  REQUIRED field.  A person or an organization, authorized to change this registration, that should be contacted for further information on the regsitered 'about' URI, with their contact points
+.in 3
+
+The initial registrations are as given below.
+
+.ti 0
+8.2.1. Initial Registrations
+
+IANA is requested to perform the following initial registrations in the created registry:
+
+.in 5
+.ti 2
+a) 'about' URI segment token:  blank
+
+Intended usage:  the "about:blank" URI returns the blank page
+
+Resolvable 'about' URI:  yes
+
+References:  this document
+
+Author/Change Controller:  IESG <iesg@ietf.org>
+.in 3
+
+.in 5
+.ti 2
+b) 'about' URI segment token:  legacy-compat
+
+Intended usage:  the "about:legacy-compat" is reserved by HTML 5 Markup Reference [HTML5-MARKUP] for internal usage
+
+Resolvable 'about' URI:  no
+
+References:  [HTML5-MARKUP]
+
+Author/Change Controller:  W3C 
+.in 3
+
+.in 5
+.ti 2
+c) 'about' URI segment token:  srcdoc
+
+Intended usage:  the "about:srcdoc" is reserved by HTML 5 Markup Reference [HTML5-MARKUP] for internal usage
+
+Resolvable 'about' URI:  no
+
+References:  [HTML5-MARKUP]
+
+Author/Change Controller:  W3C 
+.in 3
+
+
+.ti 0
+9.   Acknowledgements
+
+.in 3
+This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann, Martin Durst and Julian Reschke.
+
+
+.ti 0
+10.  References
+
+.ti 0
+10.1.  Normative References
+
+.in 16
+.\" \# REF  -- Managed reference list. Syntax: [RFC]nnnn[;Label], ... ,[RFC]nnnn[;Label]
+.\" \# 2119, 3629, 3986, 3987, 5226, 5234
+.ti 3
+[RFC2119]    Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+.ti 3
+[RFC3629]    Yergeau, F., "UTF-8, a transformation format of ISO 10646", STD 63, RFC 3629, November 2003.
+
+.ti 3
+[RFC3986]    Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, January 2005.
+
+.ti 3
+[RFC3987]    Duerst, M. and M. Suignard, "Internationalized Resource Identifiers (IRIs)", RFC 3987, January 2005.
+
+.ti 3
+[RFC5226]    Narten, T. and H. Alvestrand, "Guidelines for Writing an IANA Considerations Section in RFCs", BCP 26, RFC 5226, May 2008.
+
+.ti 3
+[RFC5234]    Crocker, D., Ed., and P. Overell, "Augmented BNF for Syntax Specifications: ABNF", STD 68, RFC 5234, January 2008.
+
+.\" \# ERF -- End of managed reference list
+.ti 3
+[UCS]        International Organization for Standardization, "Information Technology - Universal Multiple-Octet Coded Character Set (UCS)", ISO/IEC Standard 10646, December 2003.
+
+.ti 0
+10.2.  Informative References
+
+.in 16
+.ti 3
+[EASTER-EGGS]
+.bl
+Wikipedia contributors, "Easter egg (media)", Wikipedia, The Free Encyclopedia, March 2011. <http://en.wikipedia.org/wiki/Easter_egg_%28media%29>
+
+.ti 3
+[HTML5-MARKUP]
+.bl
+M. Smith, Ed., "HTML5: The Markup Language Reference", W3C Editor's Draft, February 2011. <http://dev.w3.org/html5/markup/>
+
+.ti 3
+[MOZILLA-BOOK]
+.bl
+Wikipedia contributors, "The Book of Mozilla", Wikipedia, The Free Encyclopedia, March 2011. <http://en.wikipedia.org/wiki/The_Book_of_Mozilla>
+
+.\" \# REF  -- Managed reference list. Syntax: [RFC]nnnn[;Label], ... ,[RFC]nnnn[;Label]
+.\" \# 4395
+.ti 3
+[RFC4395]    Hansen, T., Hardie, T., and L. Masinter, "Guidelines and Registration Procedures for New URI Schemes", BCP 35, RFC 4395, February 2006.
+
+.\" \# ERF
+.ti 3
+[WIKIABOUT]  Wikipedia contributors, "About URI scheme", Wikipedia, The Free Encyclopedia, February 2011. <http://en.wikipedia.org/wiki/About_URI_scheme>
+
+
+.ti 0
+Authors' Addresses
+
+.ti 3
+Joseph Anthony Pasquale Holsten
+
+.nf
+.in 3
+EMail: joseph@josephholsten.com
+URI:   http://josephholsten.com
+
+
+Lachlan Hunt
+Opera Software, ASA.
+
+EMail: lachlan.hunt@lachy.id.au
+URI:   http://lachy.id.au/
+
+
+Mykyta Yevstifeyev
+
+EMail: evnikita2@gmail.com
