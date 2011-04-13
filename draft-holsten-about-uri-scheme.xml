@@ -137,7 +137,7 @@
 
 			<t>The division of <spanx style="verb">about</spanx> URIs into the reservation and resolution categories is per-fact
 			   while the recognition per-application.  Therefore, while an <spanx style="verb">about</spanx> URI may be classified
-		       as, for example, reserved and resolvable, it may be not be recognized by all applications.</t>
+		       as, for example, reserved and resolvable, it may be not be recognised by all applications.</t>
 
 	        <section title="Reservation">
 				<t>A reserved <spanx style="verb">about</spanx> URI is one that is claimed and defined by a
@@ -145,7 +145,7 @@
 				   URI MUST be defined as either resolvable or unresolvable.</t>
 
 				<t>An unreserved <spanx style="verb">about</spanx> URI is any other <spanx style="verb">about</spanx>
-				   URI that is not defined by a specification for use in a specific context, but which MAY be recognized
+				   URI that is not defined by a specification for use in a specific context, but which MAY be recognised
 				   by an application.</t>
 
 				<section anchor="blank" title="about:blank">
@@ -170,20 +170,20 @@
 				   enters that URI into the address bar, the web browser would resolve the URI and return
 				   the resource to the user, as defined by the specification that reserved it.</t>
 
-				<t>A reserved <spanx style="verb">about</spanx> URI defined as unresolveable means that
+				<t>A reserved <spanx style="verb">about</spanx> URI defined as unresolvable means that
 				   there is no defined resolution process for the URI that applies outside of the specific
 				   context for which it is reserved.  An implementation MAY attempt to resolve the URI in an
 				   implementation-specific manner.</t>
 
 				<t>For example, the about:legacy-compat URI that is reserved by <xref target="HTML">HTML</xref>
-				   for use in a legacy-parser compatible HTML DOCTYPE is defined as unresolveable.  If a user
+				   for use in a legacy-parser compatible HTML DOCTYPE is defined as unresolvable.  If a user
 				   enters it into the address bar of their browser, the browser MAY return any implementation-specific
 				   resource.</t>
 			</section>
 			
 			<section title="Recognition">
 				<t>A recognised <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
-				   URI that recognized by an application.  Applications that recognise reserved and resolvable
+				   URI that recognised by an application.  Applications that recognise reserved and resolvable
 				   URIs MUST use the defined resolution process.  Applications that recognise unreserved or
 				   unresolvable URIs MAY resolve the URI in an implementation-specific manner.</t>
 
@@ -191,8 +191,8 @@
 				   or any reserved but unresolvable <spanx style="verb">about</spanx> URI used outside of its defined
 				   context, to any resource, either internal or external, or redirect to an alternative URI.</t>
 
-				<t>An unrecognized <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
-				   URI that is not recognized by an application.  Applications SHOULD resolve unrecognized
+				<t>An unrecognised <spanx style="verb">about</spanx> URI is an <spanx style="verb">about</spanx>
+				   URI that is not recognised by an application.  Applications SHOULD resolve unrecognised
 				   <spanx style="verb">about</spanx> URIs in the same way as "<xref target="blank" format="title" />".</t>
 
 				<t>Note: As <spanx style="verb">about</spanx> URIs are designed to be internal to each
@@ -204,7 +204,7 @@
 				<t>Historical note: Early versions of Netscape and Microsoft Internet
 				   Explorer resolved unreserved <spanx style="verb">about</spanx> URIs in the following way: they
 				   just displayed the text after "about:", treating it as HTML document.
-				   However currently these applications refused such behavior.</t>
+				   However currently these applications refused such behaviour.</t>
 
 			</section>
 			
@@ -228,10 +228,10 @@
 			   and <spanx style="verb">about:blan%6b</spanx> are equivalent, though the percent-encoded forms
 			   are discouraged.</t>
 
-			<t>Note that these normalization rules apply only to the case of
+			<t>Note that these normalisation rules apply only to the case of
 			   application built-in resolution of 'about' URIs, i.e.
 			   "about:blan%6B" and "about:blank" SHALL be resolved in the same way. 
-			   Other cases of these URIs usage would require other normalization
+			   Other cases of these URIs usage would require other normalisation
 			   rules.</t>
 		</section>
 		<section anchor="security" title="Security Considerations">
@@ -248,7 +248,7 @@
 		</section>
 		<section title="IANA Considerations">
 			<!-- must play nice with RFC2434, RFC4395 -->
-			<t>This specification requests the IANA provisionally register the <spanx style="verb">about</spanx> URI scheme as specified in this document and summarized in the following template, per <xref target="RFC4395" />:</t>
+			<t>This specification requests the IANA provisionally register the <spanx style="verb">about</spanx> URI scheme as specified in this document and summarised in the following template, per <xref target="RFC4395" />:</t>
 			<t><list style="hanging">
 				<t hangText="URI scheme name:">about</t>
 				<t hangText="Status:">Permanent</t>
@@ -265,7 +265,7 @@
 			</list></t>
 		</section>
 		<section title="Acknowledgements">
-			<t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann, Martin Durst and Julian Reschke.</t>
+			<t>This document was made possible thanks to the input of Henri Sivonen, Ian Hickson, Larry Masinter, Bjoern Hoehrmann, Martin Dürst and Julian Reschke.</t>
 		</section>
     </middle>
 	<back>
